@@ -59,7 +59,7 @@
                     </div> 
                     <div class="form-group">
                         <label>Video</label>
-                        <input type="text" class="form-control" name="link" value="{{ old('link', $ejercicios->link) }}" required>
+                        <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $ejercicios->link) }}" required>
                     </div>                        
                     <div class="form-group">
                         <label>mp3 o mp4</label>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label>Enlace</label>
-                        <input type="text" class="form-control" name="enlace" value="{{ old('enlace', $ejercicios->enlace) }}" required>
+                        <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $ejercicios->enlace) }}" required>
                     </div>  
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn-get-started">Actualizar datos</button>

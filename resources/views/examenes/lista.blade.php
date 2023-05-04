@@ -11,10 +11,10 @@
             <div class="card-header border-0">
                 <div class="row align-items-start justify-content-between">
                     <div class="col">
-                        <h3 class="mb-0">Temas</h3>
+                        <h3 class="mb-0">Examenes</h3>
                     </div>
                     <div class="col float-right">
-                        <a href="{{ url('/temas/create') }}" class="btn-get-started" style="position: absolute; top: 0; right: 10;">Añadir temas</a>
+                        <a href="{{ url('/examenes/create') }}" class="btn-get-started" style="position: absolute; top: 0; right: 10;">Añadir Examenes</a>
                     </div>
                 </div>
             </div>
@@ -31,55 +31,35 @@
                     <thead class="thead">
                         <tr>
                         <th class="text-capitalize font-weight-bolder">Id</th>
-                        <th class="text-capitalize font-weight-bolder">Tipo</th>
                         <th class="text-capitalize font-weight-bolder">Nombre</th>
                         <th class="text-capitalize font-weight-bolder">Descripción</th>
-                        <th class="text-capitalize font-weight-bolder">Imagen</th>   
-                        <th class="text-capitalize font-weight-bolder">Recurso</th>
-                        <th class="text-capitalize font-weight-bolder">Video</th>
-                        <th class="text-capitalize font-weight-bolder">Archivo</th>  
-                        <th class="text-capitalize font-weight-bolder">Enlace</th>    
+                        <th class="text-capitalize font-weight-bolder">Enlace</th>  
                         <th class="text-center text-capitalize font-weight-bolder">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($temas as $tema)
+                        @foreach($examenes as $examen)
                         <tr>
                             <td>
-                                {{ $tema->id }}
+                                {{ $examen->id }}
                             </td>
                             <th>
-                                {{ $tema->tipo }}
-                            </th>
-                            <th>
-                                {{ $tema->nombre }}
+                                {{ $examen->nombre }}
                             </th>
                             <td>
-                                {{ $tema->descripcion }}
+                                {{ $examen->descripcion }}
                             </td>
                             <td>
-                            {{ !empty($tema->imagen) ? $tema->imagen : 'N/A' }}
-                            </td>
-                            <td>
-                            {{ !empty($tema->recurso) ? $tema->recurso : 'N/A' }}
-                            </td>
-                            <td>
-                            {{ !empty($tema->link) ? $tema->link : 'N/A' }}
-                            </td>
-                            <td>
-                            {{ !empty($tema->archivo) ? $tema->archivo : 'N/A' }}                               
-                            </td>
-                            <td>
-                            {{ !empty($tema->enlace) ? $tema->enlace : 'N/A' }}                               
+                                {{ $examen->enlace }}
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">
                                 
-                                <form action="{{ url('/temas/'.$tema->id) }}" method="POST">
+                                <form action="{{ url('/examenes/'.$examen->id) }}" method="POST">
                                     @csrf 
                                     @method('DELETE') 
                                     
-                                    <a href="{{ url('/temas/'.$tema->id.'/edit') }}" class="btn-get-started">Editar</a>
+                                    <a href="{{ url('/examenes/'.$examen->id.'/edit') }}" class="btn-get-started">Editar</a>
                                     <button type="submit" class="btn-get-red">Eliminar</button>
 
                                 </form>
@@ -91,12 +71,11 @@
                     </tbody>
                     <tfoot>
                       <tr>
-                          <td colspan="4"> {{$temas->appends(['busqueda'=>$busqueda])}}  </td>
+                          <td colspan="4"> {{$examenes->appends(['busqueda'=>$busqueda])}}  </td>
                       </tr>
                   </tfoot>
                 </table>
             </div>
         </div>
-    
  </body>
 @endsection

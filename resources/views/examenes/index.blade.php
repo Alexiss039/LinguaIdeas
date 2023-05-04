@@ -15,9 +15,9 @@
             @foreach($examenes as $examen)
               <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="box">
-                  <img src="https://img.freepik.com/vector-gratis/sol-brilla-cielo-azul-nubes-fondo-realista_1284-10467.jpg?w=2000" class="img-fluid" alt="">
                   <h3>{{ $examen->nombre }}</h3>
                   <p>{{ $examen->descripcion }}</p>
+                  <a href="{{$examen->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
                 </div>
               </div>
             @endforeach

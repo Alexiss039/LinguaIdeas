@@ -33,8 +33,7 @@ class TrucosController extends Controller
     {   
         $busqueda = $request->busqueda;
         $trucos = Trucos::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'trucos' =>$trucos,
@@ -104,7 +103,7 @@ class TrucosController extends Controller
     public function show(string $id)
     {
         $truco = Trucos::findOrFail($id);
-        $ruta_base = 'trucos/';
+         $ruta_base = 'lecciones/'; 'trucos/';
         return view('trucos.show', compact('truco', 'ruta_base'));
     }
 
@@ -160,6 +159,6 @@ class TrucosController extends Controller
         $trucos = Trucos::find($id);        
         $trucos->delete();
         $notificacion = 'El truco se ha eliminado correctamente';
-        return redirect()->route('trucos.index')->with(compact('notificacion'));
+        return redirect()->route('trucos.lista')->with(compact('notificacion'));
     }
 }

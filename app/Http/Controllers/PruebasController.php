@@ -33,8 +33,7 @@ class PruebasController extends Controller
     {   
         $busqueda = $request->busqueda;
         $pruebas = Pruebas::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'pruebas' =>$pruebas,
@@ -106,7 +105,7 @@ class PruebasController extends Controller
     public function show(string $id)
     {
         $prueba = Pruebas::findOrFail($id);
-        $ruta_base = 'pruebas/';
+         $ruta_base = 'lecciones/'; 'pruebas/';
         return view('pruebas.show', compact('prueba', 'ruta_base'));
     }
 
@@ -162,6 +161,6 @@ class PruebasController extends Controller
         $pruebas = Pruebas::find($id);        
         $pruebas->delete();
         $notificacion = 'La prueba se ha eliminado correctamente';
-        return redirect()->route('pruebas.index')->with(compact('notificacion'));
+        return redirect()->route('pruebas.lista')->with(compact('notificacion'));
     }
 }

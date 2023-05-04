@@ -159,9 +159,12 @@ Route::get('entrevistas/{id}', [App\Http\Controllers\EntrevistasController::clas
 
 //Examenes
 Route::get('examenes/index', [App\Http\Controllers\ExamenesController::class, 'index'])->name('examenes.index');
+Route::get('examenes/lista', [App\Http\Controllers\ExamenesController::class, 'lista'])->name('examenes.lista');
 Route::get('examenes/create', [App\Http\Controllers\ExamenesController::class, 'create'])->name('examenes.create');
 Route::get('examenes/{id}/edit', [App\Http\Controllers\ExamenesController::class, 'edit'])->name('examenes.edit');
+Route::put('examenes/{id}/update', [App\Http\Controllers\ExamenesController::class, 'update'])->name('examenes.update');
 Route::post('examenes/index', [App\Http\Controllers\ExamenesController::class, 'store'])->name('examenes.store');
+Route::delete('examenes/{id}', [App\Http\Controllers\ExamenesController::class, 'destroy'])->name('examenes.destroy');
 
 //Innovacion
 Route::get('innovacion/index', [App\Http\Controllers\InnovacionController::class, 'index'])->name('innovacion.index');

@@ -33,8 +33,7 @@ class MemesController extends Controller
     {   
         $busqueda = $request->busqueda;
         $memes = Memes::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'memes' =>$memes,
@@ -106,7 +105,7 @@ class MemesController extends Controller
     public function show(string $id)
     {
         $meme = Memes::findOrFail($id);
-        $ruta_base = 'memes/';
+         $ruta_base = 'lecciones/'; 'memes/';
         return view('memes.show', compact('meme', 'ruta_base'));
     }
 
@@ -162,6 +161,6 @@ class MemesController extends Controller
         $memes = Memes::find($id);        
         $memes->delete();
         $notificacion = 'El meme se ha eliminado correctamente';
-        return redirect()->route('memes.index')->with(compact('notificacion'));
+        return redirect()->route('memes.lista')->with(compact('notificacion'));
     }
 }

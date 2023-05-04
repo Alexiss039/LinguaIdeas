@@ -33,8 +33,7 @@ class RecursosController extends Controller
     {   
         $busqueda = $request->busqueda;
         $recursos = Recursos::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'recursos' =>$recursos,
@@ -106,7 +105,7 @@ class RecursosController extends Controller
     public function show(string $id)
     {
         $recurso = Recursos::findOrFail($id);
-        $ruta_base = 'recursos/';
+         $ruta_base = 'lecciones/'; 'recursos/';
         return view('recursos.show', compact('recurso', 'ruta_base'));
     }
 
@@ -163,6 +162,6 @@ class RecursosController extends Controller
         $recursos = Recursos::find($id);        
         $recursos->delete();
         $notificacion = 'El recurso se ha eliminado correctamente';
-        return redirect()->route('recursos.index')->with(compact('notificacion'));
+        return redirect()->route('recursos.lista')->with(compact('notificacion'));
     }
 }

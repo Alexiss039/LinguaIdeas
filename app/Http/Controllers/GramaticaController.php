@@ -33,8 +33,7 @@ class GramaticaController extends Controller
     {   
         $busqueda = $request->busqueda;
         $gramatica = Gramatica::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'gramatica' =>$gramatica,
@@ -104,7 +103,7 @@ class GramaticaController extends Controller
     public function show(string $id)
     {
         $gramatica = Gramatica::findOrFail($id);
-        $ruta_base = 'gramatica/';
+         $ruta_base = 'lecciones/'; 'gramatica/';
         return view('gramatica.show', compact('gramatica', 'ruta_base'));
     }
 
@@ -160,6 +159,6 @@ class GramaticaController extends Controller
         $gramaticas = Gramatica::find($id);        
         $gramaticas->delete();
         $notificacion = 'La gramatica se ha eliminado correctamente';
-        return redirect()->route('gramatica.index')->with(compact('notificacion'));
+        return redirect()->route('gramatica.lista')->with(compact('notificacion'));
     }
 }

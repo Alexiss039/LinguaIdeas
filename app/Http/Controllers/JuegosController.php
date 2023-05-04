@@ -33,8 +33,7 @@ class JuegosController extends Controller
     {   
         $busqueda = $request->busqueda;
         $juegos = Juegos::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'juegos' =>$juegos,
@@ -105,7 +104,7 @@ class JuegosController extends Controller
     public function show(string $id)
     {
         $juego = Juegos::findOrFail($id);
-        $ruta_base = 'juegos/';
+         $ruta_base = 'lecciones/'; 'juegos/';
         return view('juegos.show', compact('juego', 'ruta_base'));
     }
 
@@ -161,6 +160,6 @@ class JuegosController extends Controller
         $juegos = Juegos::find($id);        
         $juegos->delete();
         $notificacion = 'El juego se ha eliminado correctamente';
-        return redirect()->route('juegos.index')->with(compact('notificacion'));
+        return redirect()->route('juegos.lista')->with(compact('notificacion'));
     }
 }

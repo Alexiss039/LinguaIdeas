@@ -33,8 +33,7 @@ class EjerciciosController extends Controller
     {   
         $busqueda = $request->busqueda;
         $ejercicios = Ejercicios::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'ejercicios' =>$ejercicios,
@@ -106,7 +105,7 @@ class EjerciciosController extends Controller
     public function show(string $id)
     {
         $ejercicio = Ejercicios::findOrFail($id);
-        $ruta_base = 'ejercicios/';
+         $ruta_base = 'lecciones/';
         return view('ejercicios.show', compact('ejercicio', 'ruta_base'));
     }
 
@@ -162,6 +161,6 @@ class EjerciciosController extends Controller
         $ejercicios = Ejercicios::find($id);        
         $ejercicios->delete();
         $notificacion = 'El ejercicio se ha eliminado correctamente';
-        return redirect()->route('ejercicios.index')->with(compact('notificacion'));
+        return redirect()->route('ejercicios.lista')->with(compact('notificacion'));
     }
 }

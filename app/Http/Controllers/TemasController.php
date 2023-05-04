@@ -34,8 +34,7 @@ class TemasController extends Controller
     {   
         $busqueda = $request->busqueda;
         $temas = Temas::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'temas' =>$temas,
@@ -107,7 +106,7 @@ class TemasController extends Controller
     public function show(string $id)
     {
         $tema = Temas::findOrFail($id);
-        $ruta_base = 'temas/';
+         $ruta_base = 'lecciones/'; 'temas/';
         return view('temas.show', compact('tema', 'ruta_base'));
     }
 
@@ -163,6 +162,6 @@ class TemasController extends Controller
         $temas = Temas::find($id);        
         $temas->delete();
         $notificacion = 'El tema se ha eliminado correctamente';
-        return redirect()->route('temas.index')->with(compact('notificacion'));
+        return redirect()->route('temas.lista')->with(compact('notificacion'));
     }
 }

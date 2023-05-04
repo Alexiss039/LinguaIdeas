@@ -33,8 +33,7 @@ class HistoriasController extends Controller
     {   
         $busqueda = $request->busqueda;
         $historias = Historias::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'historias' =>$historias,
@@ -106,7 +105,7 @@ class HistoriasController extends Controller
     public function show(string $id)
     {
         $historia = Historias::findOrFail($id);
-        $ruta_base = 'historias/';
+         $ruta_base = 'lecciones/'; 'historias/';
         return view('historias.show', compact('historia', 'ruta_base'));
     }
 
@@ -162,6 +161,6 @@ class HistoriasController extends Controller
         $historias = Historias::find($id);        
         $historias->delete();
         $notificacion = 'La historia se ha eliminado correctamente';
-        return redirect()->route('historias.index')->with(compact('notificacion'));
+        return redirect()->route('historias.lista')->with(compact('notificacion'));
     }
 }

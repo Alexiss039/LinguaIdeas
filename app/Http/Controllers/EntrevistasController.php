@@ -33,8 +33,7 @@ class EntrevistasController extends Controller
     {   
         $busqueda = $request->busqueda;
         $entrevistas = Entrevistas::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'entrevistas' =>$entrevistas,
@@ -106,7 +105,7 @@ class EntrevistasController extends Controller
     public function show(string $id)
     {
         $entrevista = Entrevistas::findOrFail($id);
-        $ruta_base = 'entrevistas/';
+         $ruta_base = 'lecciones/'; 'entrevistas/';
         return view('entrevistas.show', compact('entrevista', 'ruta_base'));
     }
 
@@ -162,6 +161,6 @@ class EntrevistasController extends Controller
         $entrevistas = Entrevistas::find($id);        
         $entrevistas->delete();
         $notificacion = 'La entrevista se ha eliminado correctamente';
-        return redirect()->route('entrevistas.index')->with(compact('notificacion'));
+        return redirect()->route('entrevistas.lista')->with(compact('notificacion'));
     }
 }

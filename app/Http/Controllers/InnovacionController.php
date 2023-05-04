@@ -33,8 +33,7 @@ class InnovacionController extends Controller
     {   
         $busqueda = $request->busqueda;
         $innovacion = Innovacion::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'innovacion' =>$innovacion,
@@ -106,7 +105,7 @@ class InnovacionController extends Controller
     public function show(string $id)
     {
         $innovacion = Innovacion::findOrFail($id);
-        $ruta_base = 'innovacion/';
+         $ruta_base = 'lecciones/'; 'innovacion/';
         return view('innovacion.show', compact('innovacion', 'ruta_base'));
     }
 
@@ -162,6 +161,6 @@ class InnovacionController extends Controller
         $innovacion = Innovacion::find($id);        
         $innovacion->delete();
         $notificacion = 'La innovación se ha eliminado correctamente';
-        return redirect()->route('innovacion.index')->with(compact('notificacion'));
+        return redirect()->route('innovacion.lista')->with(compact('notificacion'));
     }
 }

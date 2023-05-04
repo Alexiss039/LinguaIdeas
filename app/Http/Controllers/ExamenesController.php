@@ -15,6 +15,19 @@ class ExamenesController extends Controller
         return view('examenes.index', compact('examenes'));
     }
 
+    public function lista(Request $request)
+    {   
+        $busqueda = $request->busqueda;
+        $examenes = Examenes::where('nombre','LIKE','%'.$busqueda.'%')
+        ->orderBy('id','desc')
+        ->paginate(6);
+        $data = [
+        'examenes' =>$examenes,
+        'busqueda' =>$busqueda,
+        ];
+        return view('examenes.lista', $data);
+    }
+
     public function create()
     {   
         $examenes = Examenes::all();
@@ -29,12 +42,13 @@ class ExamenesController extends Controller
 
        $examenes = new Examenes();
        $examenes->nombre = $request->nombre;
-       $examenes->descripcion = $request->descripcion;    
+       $examenes->descripcion = $request->descripcion;
+       $examenes->enlace = $request->enlace;    
        $examenes->save();
        
 
        $notificacion = 'El examen se ha registrado correctamente';
-       return redirect()->route('examenes.index')->with(compact('notificacion'));
+       return redirect()->route('examenes.lista')->with(compact('notificacion'));
 
     }
 
@@ -46,57 +60,32 @@ class ExamenesController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(string $id)
-    // {
-    //     $empleados = User::find($id);
-    //     $servicios = Servicios::all();
-    //     $servicios_ids = $empleados->servicios()->pluck('servicios.id');
-    //     $data = [
-    //         'empleados' =>$empleados,
-    //     ];
-    //     return view('empleados.edit',$data, compact('servicios', 'servicios_ids'));
-    // }
+    public function edit(string $id)
+    {
+        $examenes = Examenes::find($id);
+        $data = [
+            'examenes' =>$examenes,
+        ];
+        return view('examenes.edit',$data);
+    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, string $id)
-    // {   
-    //     $empleado = User::find($id);
-    //     $empleado->cedula = $request->cedula;
-    //     $empleado->name = $request->name;
-    //     $empleado->apellidos = $request->apellidos;
-    //     $empleado->telefono = $request->telefono;
-    //     $empleado->direccion = $request->direccion;
-    //     $empleado->fecha_de_nacimiento = $request->fecha;
-    //     $empleado->estado = $request->estado;
-    //     $empleado->rol = $request->rol;
-    //     $empleado->email = $request->email;
-    //     $password = $request->input('password');
+    public function update(Request $request, string $id)
+    {   
+        $examenes = Examenes::find($id);
+        $examenes->nombre = $request->nombre;
+        $examenes->descripcion = $request->descripcion;
+        $examenes->enlace = $request->enlace;   
 
-    //     if($password)
-    //         $empleado['password'] = Hash::make($password);
+        $notificacion = 'El examen se ha actualizado correctamente';
+        $examenes->save();      
+        return redirect()->route('examenes.lista')->with(compact('notificacion'));
+    }
 
-    //     $notificacion = 'El empleado se ha actualizado correctamente';
-    //     $empleado->save();
-    //     $empleado->servicios()->sync($request->input('servicios'));
-
-
-       
-    //     return redirect()->route('empleados.index')->with(compact('notificacion'));
-    // }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $examenes = Examenes::find($id);        
         $examenes->delete();
         $notificacion = 'El examen se ha eliminado correctamente';
-        return redirect()->route('examenes.index')->with(compact('notificacion'));
+        return redirect()->route('examenes.lista')->with(compact('notificacion'));
     }
 }

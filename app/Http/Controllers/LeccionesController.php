@@ -36,9 +36,9 @@ class LeccionesController extends Controller
     {   
         $busqueda = $request->busqueda;
         $lecciones = Lecciones::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
+        
         $data = [
         'lecciones' =>$lecciones,
         'busqueda' =>$busqueda,
@@ -108,7 +108,7 @@ class LeccionesController extends Controller
     public function show($id)
     { 
        $leccion = Lecciones::findOrFail($id);
-       $ruta_base = 'lecciones/';
+        $ruta_base = 'lecciones/';
        return view('lecciones.show', compact('leccion', 'ruta_base'));
     }
 

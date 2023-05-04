@@ -33,8 +33,7 @@ class PronunciacionController extends Controller
     {   
         $busqueda = $request->busqueda;
         $pronunciacion = Pronunciacion::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'pronunciacion' =>$pronunciacion,
@@ -107,7 +106,7 @@ class PronunciacionController extends Controller
     public function show(string $id)
     {
         $pronunciacion = Pronunciacion::findOrFail($id);
-        $ruta_base = 'pronunciacion/';
+         $ruta_base = 'lecciones/'; 'pronunciacion/';
         return view('pronunciacion.show', compact('pronunciacion', 'ruta_base'));
     }
 
@@ -163,6 +162,6 @@ class PronunciacionController extends Controller
         $pronunciacion = Pronunciacion::find($id);        
         $pronunciacion->delete();
         $notificacion = 'La pronunciacion se ha eliminado correctamente';
-        return redirect()->route('pronunciacion.index')->with(compact('notificacion'));
+        return redirect()->route('pronunciacion.lista')->with(compact('notificacion'));
     }
 }

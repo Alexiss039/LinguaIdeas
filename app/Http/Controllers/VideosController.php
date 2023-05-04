@@ -19,8 +19,7 @@ class VideosController extends Controller
     {   
         $busqueda = $request->busqueda;
         $videos = Videos::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'videos' =>$videos,
@@ -50,7 +49,7 @@ class VideosController extends Controller
        
 
        $notificacion = 'El video se ha registrado correctamente';
-       return redirect()->route('videos.index')->with(compact('notificacion'));
+       return redirect()->route('videos.lista')->with(compact('notificacion'));
 
     }
 
@@ -78,7 +77,7 @@ class VideosController extends Controller
         $videos->descripcion = $request->descripcion;
         $videos->setVideoEmbedAttribute($request->input('link'));
 
-        $notificacion = 'El truco se ha actualizado correctamente';
+        $notificacion = 'El video se ha actualizado correctamente';
         $videos->save();      
         return redirect()->route('videos.lista')->with(compact('notificacion'));
     }
@@ -88,6 +87,6 @@ class VideosController extends Controller
         $videos = Videos::find($id);        
         $videos->delete();
         $notificacion = 'El video se ha eliminado correctamente';
-        return redirect()->route('videos.index')->with(compact('notificacion'));
+        return redirect()->route('videos.lista')->with(compact('notificacion'));
     }
 }

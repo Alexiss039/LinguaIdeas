@@ -13,7 +13,7 @@
           <div class="tabs">
             <button class="tab btn-tab active" data-target="tab-1">Recursos Educativos</button>
             <button class="tab btn-tab" data-target="tab-2">Multimedia</button>
-            <button class="tab btn-tab" data-target="tab-3">Enlaces educativos</button>
+            <button class="tab btn-tab" data-target="tab-3">Enlaces Educativos</button>
           </div>
   
           <div class="tab-content">
@@ -45,12 +45,12 @@
                                           </div>
                                           <label>Nombres</label>
                                           <div class="form-group">
-                                            <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required>
+                                            <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Ingrese nombre" value="{{ old('nombre') }}" required>
                                           </div>
 
                                           <label>Descripción</label>
                                           <div class="form-group">
-                                            <input id="descripcion" type="text" class="form-control" name="descripcion" value="{{ old('descripcion') }}" required>
+                                            <input id="descripcion" type="text" class="form-control" name="descripcion" placeholder="Ingrese descripción" value="{{ old('descripcion') }}" required>
                                           </div>
                                           
                                           <label>Imagen</label>
@@ -101,17 +101,17 @@
                                           </div>
                                           <label>Nombres</label>
                                           <div class="form-group">
-                                            <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required>
+                                            <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Ingrese nombre" value="{{ old('nombre') }}" required>
                                           </div>
 
                                           <label>Descripción</label>
                                           <div class="form-group">
-                                            <input id="descripcion" type="text" class="form-control" name="descripcion" value="{{ old('descripcion') }}" required>
+                                            <input id="descripcion" type="text" class="form-control" name="descripcion" placeholder="Ingrese descripción" value="{{ old('descripcion') }}" required>
                                           </div>
 
                                           <label>Integrar video</label>
                                           <div class="form-group">
-                                            <input id="link" type="text" class="form-control" name="link" value="{{ old('link') }}">
+                                            <input id="link" type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link') }}">
                                           </div>
 
                                           <label>Añadir mp3 o mp4</label>
@@ -161,16 +161,16 @@
                                           </div>
                                           <label>Nombres</label>
                                           <div class="form-group">
-                                            <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required>
+                                            <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Ingrese nombre" value="{{ old('nombre') }}" required>
                                           </div>
 
                                           <label>Descripción</label>
                                           <div class="form-group">
-                                            <input id="descripcion" type="text" class="form-control" name="descripcion" value="{{ old('descripcion') }}" required>
+                                            <input id="descripcion" type="text" class="form-control" name="descripcion" placeholder="Ingrese descripción" value="{{ old('descripcion') }}" required>
                                           </div>
                                           <label>Enlace</label>
                                           <div class="form-group">
-                                            <input id="enlace" type="text" class="form-control" name="enlace" value="{{ old('enlace') }}" required>
+                                            <input id="enlace" type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace') }}" required>
                                           </div>
                                         
                                           <div class="d-flex justify-content-around">

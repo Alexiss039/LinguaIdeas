@@ -14,4 +14,12 @@ class Memes extends Model
         'nombre',
         'descripcion',
     ];
+
+    public function setVideoEmbedAttribute($value)
+    {
+        // Replace width and height with desired values
+        $value = str_replace('width="560" height="315"', 'width="100%" height="250"', $value);
+
+        $this->attributes['link'] = $value;
+    }
 }

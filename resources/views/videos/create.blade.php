@@ -33,17 +33,17 @@
                                     
                                           <label>Nombre</label>
                                           <div class="form-group">
-                                            <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required>
+                                            <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Ingrese nombre" value="{{ old('nombre') }}" required>
                                           </div>
 
                                           <label>Descripción</label>
                                           <div class="form-group">
-                                            <input id="descripcion" type="text" class="form-control" name="descripcion" value="{{ old('descripcion') }}" required>
+                                            <input id="descripcion" type="text" class="form-control" name="descripcion" placeholder="Ingrese descripción" value="{{ old('descripcion') }}" required>
                                           </div>
 
                                           <label>Integrar video</label>
                                           <div class="form-group">
-                                            <input id="link" type="text" class="form-control" name="link" value="{{ old('link') }}">
+                                            <input id="link" type="text" class="form-control" name="link" placeholder="Añadir link" value="{{ old('link') }}" required>
                                           </div>
                                         
                                           <div class="d-flex justify-content-around">

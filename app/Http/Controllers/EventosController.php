@@ -34,8 +34,7 @@ class EventosController extends Controller
     {   
         $busqueda = $request->busqueda;
         $eventos = Eventos::where('nombre','LIKE','%'.$busqueda.'%')
-        // ->orWhere('estado', '=', 'activo')
-        //   ->latest('id')
+        ->orderBy('id','desc')
         ->paginate(6);
         $data = [
         'eventos' =>$eventos,
@@ -107,7 +106,7 @@ class EventosController extends Controller
     public function show(string $id)
     {
         $evento = Eventos::findOrFail($id);
-        $ruta_base = 'eventos/';
+         $ruta_base = 'lecciones/'; 'eventos/';
         return view('eventos.show', compact('evento', 'ruta_base'));
     }
 
@@ -163,6 +162,6 @@ class EventosController extends Controller
         $eventos = Eventos::find($id);        
         $eventos->delete();
         $notificacion = 'El evento se ha eliminado correctamente';
-        return redirect()->route('eventos.index')->with(compact('notificacion'));
+        return redirect()->route('eventos.lista')->with(compact('notificacion'));
     }
 }

@@ -17,7 +17,7 @@
           <div class="tabs">
             <button class="tab btn-tab active" data-target="tab-1">Recursos Educativos</button>
             <button class="tab btn-tab" data-target="tab-2">Multimedia</button>
-            <button class="tab btn-tab" data-target="tab-3">Enlaces educativos</button>
+            <button class="tab btn-tab" data-target="tab-3">Enlaces Educativos</button>
             <!-- <button class="tab btn-tab" data-target="tab-4">Formularios</button> -->
           </div>
   
@@ -28,7 +28,7 @@
                       @foreach($recursos as $recurso)
                         <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                           <div class="box">
-                            <a href="{{$recurso->recurso}}" target="_blank">
+                            <a href="{{ route('memes.show', $recurso) }}" target="_blank">
                             <img src="{{ asset('recursos/' . $recurso->imagen) }}" class="img-fluid" alt="">
                             </a>
                             <h3>{{ $recurso->nombre }}</h3>
