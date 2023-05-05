@@ -227,7 +227,7 @@
                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
               </a> -->
             </li>
-            @include('includes.panel.userOptions')
+            @include('Includes.panel.userOptions')
            
           </ul>
         </div>

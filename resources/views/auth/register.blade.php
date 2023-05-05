@@ -40,9 +40,9 @@
                     <div class="mb-1">
                       <input id="password-confirm" type="password" placeholder="Confirmar contraseña" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     </div>                    
-                    <div class="text-center">
+                    <!-- <div class="text-center">
                       <button type="submit" class="btn bg-gradient-info w-100 mt-2 mb-0">Crear cuenta</button>
-                    </div>
+                    </div> -->
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
