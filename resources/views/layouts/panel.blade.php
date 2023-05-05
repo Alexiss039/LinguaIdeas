@@ -9,7 +9,7 @@
 }
   </style>
 </head>
-@include('includes.panel.menu')
+@include('Includes.panel.menu')
 
   
     <div class="container-fluid py-4">
