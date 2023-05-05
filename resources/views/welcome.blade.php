@@ -2,7 +2,11 @@
 <html lang="en">
 
 <head>
+<link rel="shortcut icon" type="image/png" href="assets/img/fon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/fon.png')}}">
+  <link rel="icon" type="image/png" href="{{ asset('img/fon.png')}}">
     <title>LinguaIdeas</title>
+
 </head>
 
 <body>
