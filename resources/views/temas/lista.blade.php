@@ -1,4 +1,4 @@
-@extends('includes.panel.menu')
+@extends('Includes.panel.menu')
 
 @section('styles')
 
