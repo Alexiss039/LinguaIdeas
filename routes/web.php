@@ -110,7 +110,7 @@ Route::get('trucos/{id}', [App\Http\Controllers\TrucosController::class, 'show']
 
 //videos
 Route::get('videos/index', [App\Http\Controllers\VideosController::class, 'index'])->name('videos.index');
-Route::get('videos/lista', [App\Http\Controllers\videosController::class, 'lista'])->name('videos.lista');
+Route::get('videos/lista', [App\Http\Controllers\VideosController::class, 'lista'])->name('videos.lista');
 Route::get('videos/create', [App\Http\Controllers\VideosController::class, 'create'])->name('videos.create');
 Route::get('videos/{id}/edit', [App\Http\Controllers\VideosController::class, 'edit'])->name('videos.edit');
 Route::put('videos/{id}/update', [App\Http\Controllers\VideosController::class, 'update'])->name('videos.update');

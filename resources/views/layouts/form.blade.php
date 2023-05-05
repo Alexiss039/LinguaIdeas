@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/fon.gif')}}">
-  <link rel="icon" type="image/png" href="{{ asset('img/fon.gif')}}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/fon.png')}}">
+  <link rel="icon" type="image/png" href="{{ asset('img/fon.png')}}">
+  <link rel="shortcut icon" type="image/png" href="assets/img/fon.png">
   <title>
     {{ config('app.name') }} | @yield('LinguaIdeas')
   </title>
