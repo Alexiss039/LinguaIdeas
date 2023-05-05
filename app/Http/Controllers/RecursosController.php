@@ -12,12 +12,16 @@ class RecursosController extends Controller
     public function index()
     {   
         $recursos = Recursos::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
         ->paginate(8);
         $multimedias = Recursos::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $enlaces = Recursos::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $formularios = Recursos::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $data = [
         'recursos' =>$recursos,

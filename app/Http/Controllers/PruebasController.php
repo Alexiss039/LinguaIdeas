@@ -12,12 +12,16 @@ class PruebasController extends Controller
     public function index()
     {   
         $recursos = Pruebas::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
         ->paginate(8);
         $multimedias = Pruebas::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $enlaces = Pruebas::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $formularios = Pruebas::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $data = [
         'recursos' =>$recursos,

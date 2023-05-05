@@ -12,12 +12,16 @@ class InnovacionController extends Controller
     public function index()
     {
         $recursos = Innovacion::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
         ->paginate(8);
         $multimedias = Innovacion::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $enlaces = Innovacion::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $formularios = Innovacion::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $data = [
         'recursos' =>$recursos,

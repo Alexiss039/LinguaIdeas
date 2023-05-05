@@ -13,12 +13,16 @@ class TemasController extends Controller
     public function index()
     {   
         $recursos = Temas::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
         ->paginate(8);
         $multimedias = Temas::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $enlaces = Temas::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $formularios = Temas::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $data = [
         'recursos' =>$recursos,

@@ -13,12 +13,16 @@ class EventosController extends Controller
     public function index()
     {   
         $recursos = Eventos::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
         ->paginate(8);
         $multimedias = Eventos::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $enlaces = Eventos::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $formularios = Eventos::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $data = [
         'recursos' =>$recursos,

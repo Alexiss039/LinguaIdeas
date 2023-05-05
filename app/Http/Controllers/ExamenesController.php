@@ -11,7 +11,7 @@ class ExamenesController extends Controller
 {
     public function index()
     {   
-        $examenes = DB::table('examenes')->paginate(8);
+        $examenes = DB::table('examenes')->orderByDesc('id')->paginate(8);
         return view('examenes.index', compact('examenes'));
     }
 

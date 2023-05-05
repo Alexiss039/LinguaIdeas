@@ -47,7 +47,7 @@
                         <label>Descripción</label>
                         <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $pronunciacion->descripcion) }}">
                     </div>
-                    @if ($recursos->tipo == 'recurso')
+                    @if ($pronunciacion->tipo == 'recurso')
                     <div class="form-group">
                         <label>Imagen</label>
                         <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $pronunciacion->imagen) }}" required>

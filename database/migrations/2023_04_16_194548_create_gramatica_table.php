@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->enum('tipo', ['recurso', 'multimedia','enlace','formulario']);
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->string('imagen')->nullable();
             $table->string('recurso')->nullable();
             $table->text('link')->nullable();

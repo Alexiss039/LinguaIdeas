@@ -118,6 +118,11 @@
                                           <div class="form-group">
                                           <input id="archivo" type="file" class="form-control" name="archivo" value="{{ old('archivo') }}" accept=".mp3,.mp4">
                                           </div>
+
+                                          <label>Recurso</label>
+                                          <div class="form-group">
+                                            <input type="file" class="form-control" name="recurso">
+                                          </div>
                                         
                                           <div class="d-flex justify-content-around">
                                           <button type="submit" class="btn-get-started">Registrar lección</button>
@@ -171,6 +176,14 @@
                                           <label>Enlace</label>
                                           <div class="form-group">
                                             <input id="enlace" type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace') }}" required>
+                                          </div>
+                                          <label>Integrar video</label>
+                                          <div class="form-group">
+                                            <input id="link" type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link') }}">
+                                          </div>
+                                          <label>Recurso</label>
+                                          <div class="form-group">
+                                            <input type="file" class="form-control" name="recurso">
                                           </div>
                                         
                                           <div class="d-flex justify-content-around">

@@ -40,17 +40,18 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
+          <li> 
+          <form class="form-inline d-flex flex-column flex-sm-row" action="/buscar" method="GET">
+            <div class="flex-grow-1 mr-sm-2 mb-2 mb-sm-0">
+              <input class="form-control w-100" type="search" name="terminos" placeholder="Buscar...">
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+          </form>
+          </li>
           <li><a href="{{ url('/') }}">Inicio</a></li>
 
           <li><a href="{{ route('nosotros.index')}}">Nosotros</a></li>
 
-          <!-- <li class="dropdown"><a href="#">Pronunciación  <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="about.html">Lecciones</a></li>
-                <li><a href="team.html">Ejercicios</a></li>
-                <li><a href="testimonials.html">Juegos</a></li>
-              </ul>
-          </li> -->
           <li class="dropdown"><a href="#">Actividades <i class="bi bi-chevron-down"></i></a>
               <ul>
                 <li><a href="{{ route('lecciones.index')}}">Lecciones</a></li>

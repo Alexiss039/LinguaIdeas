@@ -11,7 +11,7 @@ class VideosController extends Controller
 {
     public function index()
     {   
-        $videos = DB::table('videos')->paginate(8);
+        $videos = DB::table('videos')->orderByDesc('id')->paginate(8);
         return view('videos.index', compact('videos'));
     }
 

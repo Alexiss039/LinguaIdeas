@@ -12,12 +12,16 @@ class JuegosController extends Controller
     public function index()
     {   
         $recursos = Juegos::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $multimedias = Juegos::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $enlaces = Juegos::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $formularios = Juegos::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                 ->paginate(8);
         $data = [
         'recursos' =>$recursos,

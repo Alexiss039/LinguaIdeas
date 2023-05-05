@@ -15,12 +15,16 @@ class LeccionesController extends Controller
     public function index()
     {   
         $recursos = Lecciones::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $multimedias = Lecciones::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $enlaces = Lecciones::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $formularios = Lecciones::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $data = [
         'recursos' =>$recursos,

@@ -188,3 +188,6 @@ Route::get('eventos/{id}', [App\Http\Controllers\EventosController::class, 'show
 
 //Testimonios
 Route::get('testimonios/index', [App\Http\Controllers\TestimoniosController::class, 'index'])->name('testimonios.index');
+
+
+Route::get('/buscar', [\App\Http\Controllers\BusquedaController::class, 'buscar'])->name('buscar');

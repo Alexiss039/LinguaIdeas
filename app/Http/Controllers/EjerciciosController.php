@@ -12,12 +12,16 @@ class EjerciciosController extends Controller
     public function index()
     {   
         $recursos = Ejercicios::where('tipo', '=', 'recurso')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $multimedias = Ejercicios::where('tipo', '=', 'multimedia')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $enlaces = Ejercicios::where('tipo', '=', 'enlace')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $formularios = Ejercicios::where('tipo', '=', 'formulario')
+        ->orderBy('id','desc')
                             ->paginate(8);
         $data = [
         'recursos' =>$recursos,

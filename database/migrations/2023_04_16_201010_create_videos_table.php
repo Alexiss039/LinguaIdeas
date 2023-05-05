@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->enum('tipo', ['recurso', 'multimedia','enlace','formulario']);
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->text('descripcion');
+            $table->string('imagen')->nullable();
+            $table->string('recurso')->nullable();
             $table->text('link');
+            $table->string('archivo')->nullable();
+            $table->text('enlace')->nullable();
             $table->timestamps();
         });
     }
