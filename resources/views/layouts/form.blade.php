@@ -18,7 +18,7 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- CSS Files -->
-  <link id="pagestyle" href="{{ asset('assets/css/soft-ui-d.css?v=1.0.3')}}" rel="stylesheet" />
+  <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dasx.css?v=1.0.3')}}" rel="stylesheet" />
 </head>
 
 <body class="">

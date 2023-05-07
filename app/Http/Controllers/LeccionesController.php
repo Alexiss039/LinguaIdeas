@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lecciones;
+use App\Models\Like;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -26,11 +27,16 @@ class LeccionesController extends Controller
         $formularios = Lecciones::where('tipo', '=', 'formulario')
         ->orderBy('id','desc')
                             ->paginate(8);
+
+    // Obtener todas las lecciones con sus respectivos likes
+    $lecciones = Lecciones::withCount('likes')->get();
         $data = [
+        'lecciones' =>$lecciones,
         'recursos' =>$recursos,
         'multimedias' =>$multimedias,
         'enlaces' =>$enlaces,
         'formularios' =>$formularios,
+        'likes' => $lecciones->pluck('likes_count', 'id'),
         ];
 
         return view('lecciones.index', $data);
@@ -42,10 +48,12 @@ class LeccionesController extends Controller
         $lecciones = Lecciones::where('nombre','LIKE','%'.$busqueda.'%')
         ->orderBy('id','desc')
         ->paginate(6);
-        
+            // Obtener todas las lecciones con sus respectivos likes
+        $leccion = Lecciones::withCount('likes')->get();
         $data = [
         'lecciones' =>$lecciones,
         'busqueda' =>$busqueda,
+        'likes' => $leccion->pluck('likes_count', 'id'),
         ];
         return view('lecciones.lista', $data);
     }
@@ -99,11 +107,66 @@ class LeccionesController extends Controller
 
 
        $lecciones->save();
+
+
        
 
        $notificacion = 'La lección se ha registrado correctamente';
        return redirect()->route('lecciones.lista')->with(compact('notificacion'));
 
+    }
+
+    public function like(Request $request){
+        // Obtener el ID de la lección y la acción (like o dislike) de la cookie
+        $cookie_name = 'leccion_'.$request->id;
+        $cookie_value = 'like';
+        $cookie_exists = $request->cookie($cookie_name);
+    
+        // Verificar si la cookie existe y la acción ya fue realizada
+        if ($cookie_exists && $cookie_exists === 'like') {
+            return redirect()->route('lecciones.index')->with('error', 'Ya has dado like anteriormente');
+        } elseif ($cookie_exists && $cookie_exists === 'dislike') {
+            return redirect()->route('lecciones.index')->with('error', 'Ya has dado dislike anteriormente');
+        }
+    
+        // Aquí se agrega la lógica para registrar el like
+        $like = new Like();
+        $like->leccion_id = $request->id;
+        $like->save();
+    
+        // Guardar la información en la cookie
+        return redirect()->route('lecciones.index')
+            ->withCookie(cookie($cookie_name, $cookie_value, null))
+            ->with('success', 'Has dado '.$cookie_value);
+    }
+
+    public function dislike(Request $request)
+    {
+        // Obtener el ID de la lección y la acción (like o dislike) de la cookie
+        $cookie_name = 'leccion_'.$request->id;
+        $cookie_value = 'dislike'; // asignar siempre el valor 'dislike' para este método
+        $cookie_exists = $request->cookie($cookie_name);
+    
+        // Verificar si la cookie existe y la acción ya fue realizada
+        if ($cookie_exists && $cookie_exists === $cookie_value) {
+            return redirect()->route('lecciones.index')->with('error', 'Ya has realizado esta acción anteriormente');
+        }
+    
+        // Buscar el like correspondiente
+        $like = Like::where('leccion_id', $request->id)->first();
+    
+        // Si se encontró el like, eliminarlo
+        if ($like) {
+            $like->delete();
+    
+            // Guardar la información en la cookie
+            return redirect()->route('lecciones.index')
+                ->withCookie(cookie($cookie_name, $cookie_value, 0))
+                ->with('success', 'Has dado '.$cookie_value);
+        }
+    
+        // Si no se encontró el like, mostrar un mensaje de error
+        return redirect()->route('lecciones.index')->with('error', 'No se encontró el like correspondiente');
     }
 
     /**

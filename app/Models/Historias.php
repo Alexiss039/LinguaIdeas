@@ -22,4 +22,8 @@ class Historias extends Model
 
         $this->attributes['link'] = $value;
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'historia_id');
+    }
 }

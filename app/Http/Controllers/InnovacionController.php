@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Innovacion;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Like;
 class InnovacionController extends Controller
 {
     public function index()
@@ -23,11 +23,13 @@ class InnovacionController extends Controller
         $formularios = Innovacion::where('tipo', '=', 'formulario')
         ->orderBy('id','desc')
                 ->paginate(8);
+                $innov = Innovacion::withCount('likes')->get();
         $data = [
         'recursos' =>$recursos,
         'multimedias' =>$multimedias,
         'enlaces' =>$enlaces,
         'formularios' =>$formularios,
+        'likes' => $innov->pluck('likes_count', 'id'),
         ];
 
         return view('innovacion.index', $data);
@@ -39,9 +41,11 @@ class InnovacionController extends Controller
         $innovacion = Innovacion::where('nombre','LIKE','%'.$busqueda.'%')
         ->orderBy('id','desc')
         ->paginate(6);
+        $innov = Innovacion::withCount('likes')->get();
         $data = [
         'innovacion' =>$innovacion,
         'busqueda' =>$busqueda,
+        'likes' => $innov->pluck('likes_count', 'id'),
         ];
         return view('innovacion.lista', $data);
     }
@@ -101,6 +105,59 @@ class InnovacionController extends Controller
        $notificacion = 'La innovacion se ha registrado correctamente';
        return redirect()->route('innovacion.lista')->with(compact('notificacion'));
 
+    }
+
+    public function like(Request $request){
+        // Obtener el ID de la lección y la acción (like o dislike) de la cookie
+        $cookie_name = 'innovacion_'.$request->id;
+        $cookie_value = 'like';
+        $cookie_exists = $request->cookie($cookie_name);
+    
+        // Verificar si la cookie existe y la acción ya fue realizada
+        if ($cookie_exists && $cookie_exists === 'like') {
+            return redirect()->route('innovacion.index')->with('error', 'Ya has dado like anteriormente');
+        } elseif ($cookie_exists && $cookie_exists === 'dislike') {
+            return redirect()->route('innovacion.index')->with('error', 'Ya has dado dislike anteriormente');
+        }
+    
+        // Aquí se agrega la lógica para registrar el like
+        $like = new Like();
+        $like->innovacion_id = $request->id;
+        $like->save();
+    
+        // Guardar la información en la cookie
+        return redirect()->route('innovacion.index')
+            ->withCookie(cookie($cookie_name, $cookie_value, null))
+            ->with('success', 'Has dado '.$cookie_value);
+    }
+
+    public function dislike(Request $request)
+    {
+        // Obtener el ID de la lección y la acción (like o dislike) de la cookie
+        $cookie_name = 'innovacion_'.$request->id;
+        $cookie_value = 'dislike'; // asignar siempre el valor 'dislike' para este método
+        $cookie_exists = $request->cookie($cookie_name);
+    
+        // Verificar si la cookie existe y la acción ya fue realizada
+        if ($cookie_exists && $cookie_exists === $cookie_value) {
+            return redirect()->route('innovacion.index')->with('error', 'Ya has realizado esta acción anteriormente');
+        }
+    
+        // Buscar el like correspondiente
+        $like = Like::where('innovacion_id', $request->id)->first();
+    
+        // Si se encontró el like, eliminarlo
+        if ($like) {
+            $like->delete();
+    
+            // Guardar la información en la cookie
+            return redirect()->route('innovacion.index')
+                ->withCookie(cookie($cookie_name, $cookie_value, 0))
+                ->with('success', 'Has dado '.$cookie_value);
+        }
+    
+        // Si no se encontró el like, mostrar un mensaje de error
+        return redirect()->route('innovacion.index')->with('error', 'No se encontró el like correspondiente');
     }
 
     /**

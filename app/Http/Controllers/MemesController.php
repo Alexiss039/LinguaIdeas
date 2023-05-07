@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Memes;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Like;
 class MemesController extends Controller
 {
     public function index()
@@ -23,11 +23,13 @@ class MemesController extends Controller
         $formularios = Memes::where('tipo', '=', 'formulario')
         ->orderBy('id','desc')
                 ->paginate(8);
+                $mem = Memes::withCount('likes')->get();
         $data = [
         'recursos' =>$recursos,
         'multimedias' =>$multimedias,
         'enlaces' =>$enlaces,
         'formularios' =>$formularios,
+        'likes' => $mem->pluck('likes_count', 'id'),
         ];
 
         return view('memes.index', $data);
@@ -39,9 +41,11 @@ class MemesController extends Controller
         $memes = Memes::where('nombre','LIKE','%'.$busqueda.'%')
         ->orderBy('id','desc')
         ->paginate(6);
+        $mem = Memes::withCount('likes')->get();
         $data = [
         'memes' =>$memes,
         'busqueda' =>$busqueda,
+        'likes' => $mem->pluck('likes_count', 'id'),
         ];
         return view('memes.lista', $data);
     }
@@ -103,6 +107,59 @@ class MemesController extends Controller
 
     }
 
+
+    public function like(Request $request){
+        // Obtener el ID de la lección y la acción (like o dislike) de la cookie
+        $cookie_name = 'meme_'.$request->id;
+        $cookie_value = 'like';
+        $cookie_exists = $request->cookie($cookie_name);
+    
+        // Verificar si la cookie existe y la acción ya fue realizada
+        if ($cookie_exists && $cookie_exists === 'like') {
+            return redirect()->route('memes.index')->with('error', 'Ya has dado like anteriormente');
+        } elseif ($cookie_exists && $cookie_exists === 'dislike') {
+            return redirect()->route('memes.index')->with('error', 'Ya has dado dislike anteriormente');
+        }
+    
+        // Aquí se agrega la lógica para registrar el like
+        $like = new Like();
+        $like->meme_id = $request->id;
+        $like->save();
+    
+        // Guardar la información en la cookie
+        return redirect()->route('memes.index')
+            ->withCookie(cookie($cookie_name, $cookie_value, null))
+            ->with('success', 'Has dado '.$cookie_value);
+    }
+
+    public function dislike(Request $request)
+    {
+        // Obtener el ID de la lección y la acción (like o dislike) de la cookie
+        $cookie_name = 'meme_'.$request->id;
+        $cookie_value = 'dislike'; // asignar siempre el valor 'dislike' para este método
+        $cookie_exists = $request->cookie($cookie_name);
+    
+        // Verificar si la cookie existe y la acción ya fue realizada
+        if ($cookie_exists && $cookie_exists === $cookie_value) {
+            return redirect()->route('memes.index')->with('error', 'Ya has realizado esta acción anteriormente');
+        }
+    
+        // Buscar el like correspondiente
+        $like = Like::where('meme_id', $request->id)->first();
+    
+        // Si se encontró el like, eliminarlo
+        if ($like) {
+            $like->delete();
+    
+            // Guardar la información en la cookie
+            return redirect()->route('memes.index')
+                ->withCookie(cookie($cookie_name, $cookie_value, 0))
+                ->with('success', 'Has dado '.$cookie_value);
+        }
+    
+        // Si no se encontró el like, mostrar un mensaje de error
+        return redirect()->route('memes.index')->with('error', 'No se encontró el like correspondiente');
+    }
     /**
      * Display the specified resource.
      */

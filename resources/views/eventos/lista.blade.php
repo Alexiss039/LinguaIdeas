@@ -32,6 +32,7 @@
                         <tr>
                         <th class="text-capitalize font-weight-bolder">Id</th>
                         <th class="text-capitalize font-weight-bolder">Tipo</th>
+                        <th class="text-capitalize font-weight-bolder">Likes</th>
                         <th class="text-capitalize font-weight-bolder">Nombre</th>
                         <th class="text-capitalize font-weight-bolder">Descripción</th>
                         <th class="text-capitalize font-weight-bolder">Imagen</th>   
@@ -50,6 +51,9 @@
                             </td>
                             <th>
                                 {{ $evento->tipo }}
+                            </th>
+                            <th>
+                            {{ $likes[$evento->id] }}
                             </th>
                             <th>
                                 {{ $evento->nombre }}

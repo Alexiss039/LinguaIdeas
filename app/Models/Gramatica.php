@@ -22,4 +22,8 @@ class Gramatica extends Model
 
         $this->attributes['link'] = $value;
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'gramatica_id');
+    }
 }

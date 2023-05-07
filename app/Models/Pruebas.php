@@ -22,4 +22,8 @@ class Pruebas extends Model
 
         $this->attributes['link'] = $value;
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'prueba_id');
+    }
 }

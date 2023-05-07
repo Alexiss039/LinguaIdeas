@@ -157,7 +157,7 @@ body {
 
 .navbar ul {
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
   display: flex;
   list-style: none;
   align-items: center;
@@ -2192,4 +2192,38 @@ body {
 .btn-blue:hover {
   background: #3498db;
   color: #fff;
+}
+
+.likes-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.btn-like, .btn-dislike {
+  border-radius: 50%; /* establece la forma circular del botón */
+  background-color: #fff; /* establece el color de fondo predeterminado del botón */
+  transition: background-color 0.2s ease-in-out; /* establece una transición suave cuando cambia el color de fondo */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-like:hover, .btn-dislike:hover {
+  background-color: #007bff; /* establece el color de fondo al pasar el cursor sobre el botón */
+  cursor: pointer; /* cambia el cursor al pasar sobre el botón */
+}
+
+.btn-like:focus, .btn-dislike:focus {
+  outline: none;
+}
+
+.btn-like.active, .btn-dislike.active {
+  color: #007bff;
 }

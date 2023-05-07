@@ -44,6 +44,9 @@
                                 {{ $video->id }}
                             </td>
                             <th>
+                            {{ $likes[$video->id] }}
+                            </th>
+                            <th>
                                 {{ $video->nombre }}
                             </th>
                             <td>

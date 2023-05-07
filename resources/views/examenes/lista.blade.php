@@ -44,6 +44,9 @@
                                 {{ $examen->id }}
                             </td>
                             <th>
+                            {{ $likes[$examen->id] }}
+                            </th>
+                            <th>
                                 {{ $examen->nombre }}
                             </th>
                             <td>

@@ -26,10 +26,30 @@
 
 
   <!-- Template Main CSS File -->
-  <link rel="stylesheet" href="{{ asset('assets/css/linguai.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/linguaide.css')}}">
 
 </head>
-
+<div class="modal fade" id="buscarModal" tabindex="-1" role="dialog" aria-labelledby="buscarModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="/buscar" method="GET">
+        <div class="modal-header">
+          <h5 class="modal-title" id="buscarModalLabel">Buscar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control" type="search" name="terminos" placeholder="Buscar...">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -42,12 +62,17 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li> 
-          <form class="form-inline d-flex flex-column flex-sm-row" action="/buscar" method="GET">
-            <div class="flex-grow-1 mr-sm-2 mb-2 mb-sm-0">
-              <input class="form-control w-100" type="search" name="terminos" placeholder="Buscar...">
-            </div>
-            <button class="btn btn-outline-primary" type="submit">Buscar</button>
-          </form>
+          <!-- <form class="form-inline" action="/buscar" method="GET">
+              <div class="input-group">
+                  <input class="form-control" type="search" name="terminos" placeholder="Buscar...">
+                  <div class="input-group-append">
+                      <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                  </div>
+              </div>
+          </form> -->
+          <button type="button" class="btn-blue" data-toggle="modal" data-target="#buscarModal">
+  Buscar
+</button>
           </li>
           <li><a href="{{ url('/') }}">Inicio</a></li>
 

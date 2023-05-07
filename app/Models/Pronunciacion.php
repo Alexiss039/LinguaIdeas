@@ -22,4 +22,8 @@ class Pronunciacion extends Model
 
         $this->attributes['link'] = $value;
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'pronunciacion_id');
+    }
 }

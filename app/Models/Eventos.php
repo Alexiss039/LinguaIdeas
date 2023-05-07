@@ -22,4 +22,8 @@ class Eventos extends Model
 
         $this->attributes['link'] = $value;
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'entrevista_id');
+    }
 }
