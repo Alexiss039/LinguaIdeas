@@ -32,7 +32,7 @@ class RecursosController extends Controller
         'likes' => $recu->pluck('likes_count', 'id'),
         ];
 
-        return view('Recursos.index', $data);
+        return view('recursos.index', $data);
     }
 
     public function lista(Request $request)

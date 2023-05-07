@@ -32,7 +32,7 @@ class TrucosController extends Controller
         'likes' => $truc->pluck('likes_count', 'id'),
         ];
 
-        return view('Trucos.index', $data);
+        return view('trucos.index', $data);
     }
 
     public function lista(Request $request)
