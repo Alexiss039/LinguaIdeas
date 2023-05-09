@@ -55,6 +55,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Listado de Memes</h2>
+
+          <p>
+          Descubre cómo los memes en inglés pueden hacer que el aprendizaje del idioma sea aún más
+          entretenido. Navega por nuestra colección de memes graciosos y virales para aprender nuevas
+          palabras y expresiones, y comparte tus favoritos con tus amigos.
+          </p>
         </div>      
 
         <div class="tab-container">

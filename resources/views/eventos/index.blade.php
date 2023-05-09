@@ -55,6 +55,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Listado de eventos</h2>
+
+          <p>
+          Consulta nuestra selección de eventos y cursos de inglés en línea y presenciales que te ayudarán a
+          mejorar tus habilidades lingüísticas. Desde talleres intensivos hasta cursos gratuitos, aquí
+          encontrarás oportunidades para aprender inglés de manera efectiva y a tu propio ritmo.
+          </p>
         </div>      
 
         <div class="tab-container">

@@ -61,19 +61,21 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li> 
-          <!-- <form class="form-inline" action="/buscar" method="GET">
-              <div class="input-group">
-                  <input class="form-control" type="search" name="terminos" placeholder="Buscar...">
-                  <div class="input-group-append">
-                      <button class="btn btn-outline-primary" type="submit">Buscar</button>
-                  </div>
-              </div>
-          </form> -->
-          <button type="button" class="btn-blue" data-toggle="modal" data-target="#buscarModal">
-  Buscar
-</button>
-          </li>
+        <li> 
+            <!-- <form class="form-inline" action="/buscar" method="GET">
+                <div class="input-group">
+                    <input class="form-control" type="search" name="terminos" placeholder="Buscar...">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                    </div>
+                </div>
+            </form> -->
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn-blue mx-auto" data-toggle="modal" data-target="#buscarModal">
+                    Buscar
+                </button>
+            </div>
+        </li>
           <li><a href="{{ url('/') }}">Inicio</a></li>
 
           <li><a href="{{ route('nosotros.index')}}">Nosotros</a></li>
@@ -94,7 +96,7 @@
               <ul>
                 <li><a href="{{ route('videos.index')}}">Videos</a></li>
                 <li><a href="{{ route('memes.index')}}">Memes</a></li>
-                <li><a href="{{ route('historias.index')}}">Historias</a></li>               
+                <li><a href="{{ route('historias.index')}}">Actualidad</a></li>               
               </ul>
           </li>
           <li class="dropdown"><a href="#">Podcast <i class="bi bi-chevron-down"></i></a>

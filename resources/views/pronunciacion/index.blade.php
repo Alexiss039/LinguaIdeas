@@ -55,6 +55,11 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Listado de pronunciación</h2>
+          <p>
+          Mejora tu pronunciación del inglés con nuestras actividades y consejos específicos. Desde
+          ejercicios de fonética hasta errores comunes de pronunciación, te ofrecemos recursos para
+          perfeccionar tu fluidez y lograr una comunicación clara y efectiva en inglés.
+          </p>
         </div>      
 
         <div class="tab-container">

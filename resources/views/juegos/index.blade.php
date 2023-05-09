@@ -55,6 +55,13 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Listado de Juegos</h2>
+
+          <p>
+          Aprende inglés mientras te diviertes con una amplia variedad de juegos educativos en línea. En
+          LinguaIdeas te damos un detallado paso a paso de cómo sacar el mejor provecho de estos recursos
+          en línea para mejorar tus habilidades lingüísticas de una manera lúdica e interactiva, convirtiendo
+          el aprendizaje en una experiencia agradable y emocionante.
+          </p>
         </div>      
 
         <div class="tab-container">

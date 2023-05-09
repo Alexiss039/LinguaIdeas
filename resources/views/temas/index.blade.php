@@ -55,6 +55,11 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Listado de Temas</h2>
+          <p>
+          Sintoniza nuestros episodios temáticos en los que abordamos diversos aspectos del aprendizaje
+          del inglés, desde la cultura y la historia hasta consejos prácticos y técnicas de estudio. Estos episodios te proporcionarán información valiosa y te mantendrán comprometido con tu
+          aprendizaje.
+          </p>
         </div>      
 
         <div class="tab-container">

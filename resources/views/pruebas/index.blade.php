@@ -55,6 +55,13 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Listado de pruebas</h2>
+          <p>
+          Evalúa tu progreso e identifica áreas de mejora con nuestras pruebas de inglés y otras muchas
+          disponibles en línea. Estas pruebas abarcan diferentes temas y niveles, proporcionándote una
+          valiosa retroalimentación para ajustar tus estudios y seguir avanzando hacia la fluidez. Anímate a
+          evaluar no solo tu conocimiento de la lengua sino también tus estilos de aprendizaje para que
+          identifiques cuáles son los recursos más apropiados para ti y cómo utilizarlos.
+          </p>
         </div>      
 
         <div class="tab-container">

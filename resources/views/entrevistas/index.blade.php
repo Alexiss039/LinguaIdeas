@@ -55,6 +55,11 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Lista de Entrevistas</h2>
+          <p>
+          Escucha nuestras entrevistas con estudiantes, profesores y hablantes nativos de inglés que
+          comparten sus experiencias y consejos sobre el aprendizaje del idioma. Aprende de sus historias y
+          adquiere nuevos conocimientos para aplicar en tu propio camino hacia la fluidez.
+          </p>
         </div>      
 
         <div class="tab-container">

@@ -55,6 +55,11 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Listado de Ejercicios</h2>
+          <p>
+          Practica y consolida tus conocimientos con nuestros ejercicios interactivos y desafiantes. Refuerza
+          tus habilidades en gramática, vocabulario, pronunciación y más, a través de actividades específicas
+          que te ayudarán a dominar el inglés de manera efectiva y entretenida.
+          </p>
         </div>      
 
         <div class="tab-container">

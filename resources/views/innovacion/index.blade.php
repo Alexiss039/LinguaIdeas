@@ -55,6 +55,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Listado de innovación y tendencias</h2>
+
+          <p>
+          Descubre las últimas innovaciones y tendencias en la enseñanza y aprendizaje del inglés, desde el
+          uso de tecnologías emergentes hasta nuevos enfoques pedagógicos. Mantente informado sobre
+          las mejores prácticas y herramientas para mejorar tu experiencia de aprendizaje.
+          </p>
         </div>      
 
         <div class="tab-container">

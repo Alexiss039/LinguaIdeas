@@ -54,6 +54,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Listado de Lecciones</h2>
+          <p>
+          Descubre nuestras lecciones de inglés cuidadosamente diseñadas para abordar temas clave y
+          habilidades lingüísticas. Nuestras lecciones cubren una amplia gama de niveles y temas, desde
+          principiantes hasta avanzados, garantizando que encuentres el contenido adecuado para tus
+          necesidades de aprendizaje.
+          </p>
         </div>     
      
         <div class="tab-container">

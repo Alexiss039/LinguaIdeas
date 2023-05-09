@@ -55,6 +55,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Listado de recursos</h2>
+          <p>
+          Explora nuestra colección de sugerencias de recursos útiles para el aprendizaje del inglés, que
+          incluye libros electrónicos, diccionarios en línea, sitios web de gramática y ejercicios de escucha y
+          cómo utilizarlos adecuadamente. Aquí encontrarás herramientas esenciales para complementar
+          tus estudios y enriquecer tu experiencia de aprendizaje.
+          </p>
         </div>      
 
         <div class="tab-container">

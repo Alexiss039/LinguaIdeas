@@ -206,6 +206,7 @@
             </div> -->
           </div>
           <ul class="navbar-nav  justify-content-end">
+          @if(auth()->check())
             <li class="nav-item d-flex align-items-center">
               <a href="#" class="nav-link text-body font-weight-bold px-0">
                 <span class="d-sm-inline d-none">{{ auth()->user()->name}}</span>
@@ -214,6 +215,7 @@
                 @csrf
               </form>
             </li>
+          @endif
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">

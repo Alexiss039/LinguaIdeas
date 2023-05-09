@@ -4,7 +4,7 @@
               </a>
               <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
          
-                <li class="mb-2">
+                <!-- <li class="mb-2">
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                    
@@ -15,7 +15,7 @@
                       </div>
                     </div>
                   </a>
-                </li>
+                </li> -->
   
                 <li>
                   <a class="dropdown-item border-radius-md" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

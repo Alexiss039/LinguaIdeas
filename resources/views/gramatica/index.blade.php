@@ -55,6 +55,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Listado de Gramática</h2>
+          <p>
+          Domina las reglas y estructuras del inglés con nuestra sección de Gramática. Aquí encontrarás
+          explicaciones claras y ejemplos prácticos que te ayudarán a comprender y aplicar correctamente
+          las normas gramaticales en diferentes contextos comunicativos. También, encontrarás respuestas
+          a algunas de las dudas más comunes cuando de la gramática se trata.
+          </p>
         </div>      
 
         <div class="tab-container">

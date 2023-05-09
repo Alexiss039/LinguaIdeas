@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\File;
 
 class LeccionesController extends Controller
 {
+
     public function index()
     {   
         $recursos = Lecciones::where('tipo', '=', 'recurso')

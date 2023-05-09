@@ -9,6 +9,14 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Lista de videos</h2>
+
+          <p>
+          Disfruta de nuestra selección de videos en inglés que te harán reír y aprender al mismo tiempo.
+          Desde cortometrajes cómicos hasta sketches y animaciones, estos videos te ayudarán a
+          sumergirte en el idioma de una manera relajada y divertida. Y si quieres ir más allá, sigue nuestros
+          consejos de cómo sacar el máximo de cada video según temática y elementos lingüísticos
+          involucrados.
+          </p>
         </div>
 
         <div class="row">

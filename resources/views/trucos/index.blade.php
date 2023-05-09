@@ -55,6 +55,11 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Listado de Trucos</h2>
+          <p>
+          Descubre nuestros trucos y consejos para aprender inglés de manera más eficiente y efectiva.
+          Desde técnicas de memorización hasta estrategias para mejorar la comprensión auditiva, te
+          ofrecemos consejos prácticos para superar obstáculos comunes y acelerar tu aprendizaje.
+          </p>
         </div>      
 
         <div class="tab-container">

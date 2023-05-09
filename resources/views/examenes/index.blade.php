@@ -9,6 +9,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Lista de examenes</h2>
+
+          <p>
+          Entérate de las últimas noticias y cambios en los exámenes de certificación de inglés, como IELTS,
+          TOEFL y Cambridge. Aquí encontrarás información actualizada sobre las fechas de exámenes,
+          requisitos y consejos para obtener los mejores resultados.
+          </p>
         </div>
 
         <div class="row">

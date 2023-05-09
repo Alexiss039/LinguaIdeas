@@ -37,22 +37,18 @@
 
         <div class="row content">
             <p>
-            Bienvenido a LinguaIdeas, la plataforma en línea líder en enseñanza de idiomas,
-            donde encontrarás una experiencia innovadora y accesible para aprender y
-            conectar con diversas culturas. Nuestra misión es ayudar a nuestros usuarios a
-            desarrollar habilidades lingüísticas que les permitan expandir sus horizontes y
-            establecer conexiones con personas de todo el mundo en un entorno seguro y
-            acogedor.
+        Bienvenido a LinguaIdeas, una plataforma en línea innovadora y accesible para aprender idiomas y
+        conectar con diversas culturas. Nuestra misión es ayudar a los usuarios a desarrollar habilidades
+        lingüísticas en un entorno seguro y placentero, aprovechando al máximo los recursos en línea y
+        adaptándose a diferentes estilos de aprendizaje.
             </p>
 
             <p>
-            Fundada por Sergio Ossa, un apasionado docente con más de 11 años de
-            experiencia en la enseñanza de idiomas, LinguaIdeas combina entretenimiento,
-            educación y actualidad en un enfoque creativo e innovador. Nuestro equipo de
-            profesionales altamente calificados y experimentados trabaja conjuntamente para
-            proporcionar una amplia variedad de recursos y actividades, como videos, juegos,
-            ejercicios y contenido cultural, que hacen el aprendizaje de idiomas más atractivo
-            y enriquecedor.
+      Nuestro equipo de profesionales altamente calificados trabaja conjuntamente para proporcionar
+      recursos y actividades atractivas, como videos, juegos, ejercicios y contenido cultural. En
+      LinguaIdeas, nos enfocamos en ofrecer estrategias de estudio transformadoras que se ajusten a
+      los estilos de aprendizaje individuales de nuestros usuarios, garantizando una experiencia de
+      aprendizaje más efectiva y satisfactoria.
             </p>
 
             <div class="container" style="text-align:center;">
@@ -123,7 +119,14 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Aprende inglés</h2>
-          <p>Aprender inglés nunca ha sido tan fácil. En nuestra página te proporcionamos herramientas y trucos útiles sobre cómo aprender inglés. Descubre cómo puedes mejorar tu fluidez, comprensión y expresión en inglés con nosotros.</p>
+          <!-- <p>Aprender inglés nunca ha sido tan fácil. En nuestra página te proporcionamos herramientas y trucos útiles sobre cómo aprender inglés. Descubre cómo puedes mejorar tu fluidez, comprensión y expresión en inglés con nosotros.</p> -->
+            <p>En LinguaIdeas, creemos que aprender inglés puede ser una experiencia emocionante y
+            enriquecedora. Nuestra sección de Actividades ofrece una amplia variedad de lecciones, ejercicios,
+            juegos, recursos y trucos únicos y creativos que te ayudarán a mejorar tus habilidades en el idioma
+            de manera efectiva. Explora nuestras actividades de pronunciación, gramática y pruebas para
+            llevar tu inglés al siguiente nivel. Contamos con propuestas propias para potenciar tus
+            oportunidades de aprendizaje, además te brindamos los mejores consejos para sacar el máximo
+            provecho a los recursos y herramientas disponibles en línea.</p>
         </div>
 
         <div class="row">
@@ -222,7 +225,12 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Entretenimiento en inglés para todos</h2>
-          <p>¿Quieres divertirte en inglés? Encuentra contenido entretenido y viral en inglés en nuestra sección de entretenimiento. Tenemos videos, noticias, memes y más, todo para que puedas disfrutar mientras mejoras tu inglés.</p>
+          <!-- <p>¿Quieres divertirte en inglés? Encuentra contenido entretenido y viral en inglés en nuestra sección de entretenimiento. Tenemos videos, noticias, memes y más, todo para que puedas disfrutar mientras mejoras tu inglés.</p> -->
+          <p>Aprender inglés no tiene por qué ser aburrido. En LinguaIdeas, te presentamos una selección de
+          videos, memes e historias en inglés disponibles en línea para mantenerte entretenido mientras
+          aprendes. Sumérgete en el idioma con nuestras recomendaciones sobre cómo aprender de
+          manera entretenida y descubre cómo el aprendizaje del inglés puede ser tan divertido como
+          cualquier otra actividad de ocio.</p>
         </div>
 
         <div class="row">
@@ -342,7 +350,11 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Podcast para aprender inglés</h2>
-          <p>¡Escucha los mejores podcasts en inglés en nuestra página! Tenemos una selección cuidadosa de podcasts de alta calidad y relevancia para mejorar tu inglés mientras disfrutas de contenido interesante.</p>
+          <!-- <p>¡Escucha los mejores podcasts en inglés en nuestra página! Tenemos una selección cuidadosa de podcasts de alta calidad y relevancia para mejorar tu inglés mientras disfrutas de contenido interesante.</p> -->
+          <p>El Podcast de LinguaIdeas es tu fuente de información y entretenimiento en el mundo del
+          aprendizaje del inglés. Escucha nuestras entrevistas con diversos actores de la enseñanza-
+          aprendizaje del idioma y disfruta de episodios temáticos llenos de consejos prácticos y
+          experiencias inspiradoras. Aprende inglés mientras te diviertes, en cualquier momento y lugar.</p>
         </div>
 
         <div class="row" style="justify-content:space-around;">
@@ -402,7 +414,13 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2 class="no-before no-after">Noticias y actualizaciones</h2>
-          <p>En nuestra sección de noticias, te mantendremos actualizado sobre las últimas tendencias y novedades en pruebas de suficiencia de inglés y cursos de inglés. Descubre las mejores formas de prepararte y mejorar tu inglés para lograr tus objetivos académicos y profesionales.</p>
+          <!-- <p>En nuestra sección de noticias, te mantendremos actualizado sobre las últimas tendencias y novedades en pruebas de suficiencia de inglés y cursos de inglés. Descubre las mejores formas de prepararte y mejorar tu inglés para lograr tus objetivos académicos y profesionales.</p> -->
+          <p>Mantente informado sobre las últimas novedades en el aprendizaje del inglés con nuestra sección
+          de Noticias. Aquí encontrarás información actualizada sobre exámenes de certificación,
+          innovaciones y tendencias educativas como el aprendizaje con herramientas de inteligencia
+          artificial, al igual que eventos y cursos que te ayudarán a mejorar tus habilidades en el idioma.
+          Lengua Ideas te mantiene al tanto de todo lo que necesitas saber para tener éxito en tu camino
+          hacia la fluidez en inglés.</p>
         </div>
 
         <div class="row">
@@ -449,7 +467,14 @@
 
         <div class="section-title" data-aos="fade-up">
           <h2>Comunidad</h2>
-          <p>Únete a nuestra comunidad de estudiantes de inglés y comparte tus trabajos en inglés. Obtén comentarios y sugerencias para mejorar tus habilidades lingüísticas.</p>
+          <!-- <p>Únete a nuestra comunidad de estudiantes de inglés y comparte tus trabajos en inglés. Obtén comentarios y sugerencias para mejorar tus habilidades lingüísticas.</p> -->
+          <p>Únete a nuestra vibrante Comunidad de LinguaIdeas, un espacio donde estudiantes y entusiastas
+          del inglés de todo el mundo se reúnen para compartir sus experiencias, trabajos y consejos. En
+          nuestra comunidad, podrás obtener valiosos comentarios y sugerencias para mejorar tus
+          habilidades lingüísticas, al mismo tiempo que te conectas con personas que comparten tus
+          intereses y pasión por el aprendizaje del inglés. Participa en discusiones inspiradoras, intercambia
+          recursos útiles y descubre nuevas ideas para llevar tu inglés al siguiente nivel. ¡Súmate a
+          LinguaIdeas y forma parte de una red global de aprendices y amantes del inglés!</p>
         </div>
 
         <iframe src="https://linguaideas.blogspot.com/" frameborder="0" width="100%" height="700px;"></iframe>

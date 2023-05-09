@@ -13,22 +13,18 @@
 
         <div class="row content">
             <p>
-            Bienvenido a LinguaIdeas, la plataforma en línea líder en enseñanza de idiomas,
-            donde encontrarás una experiencia innovadora y accesible para aprender y
-            conectar con diversas culturas. Nuestra misión es ayudar a nuestros usuarios a
-            desarrollar habilidades lingüísticas que les permitan expandir sus horizontes y
-            establecer conexiones con personas de todo el mundo en un entorno seguro y
-            acogedor.
+            Bienvenido a LinguaIdeas, una plataforma en línea innovadora y accesible para aprender idiomas y
+            conectar con diversas culturas. Nuestra misión es ayudar a los usuarios a desarrollar habilidades
+            lingüísticas en un entorno seguro y placentero, aprovechando al máximo los recursos en línea y
+            adaptándose a diferentes estilos de aprendizaje.
             </p>
 
             <p>
-            Fundada por Sergio Ossa, un apasionado docente con más de 11 años de
-            experiencia en la enseñanza de idiomas, LinguaIdeas combina entretenimiento,
-            educación y actualidad en un enfoque creativo e innovador. Nuestro equipo de
-            profesionales altamente calificados y experimentados trabaja conjuntamente para
-            proporcionar una amplia variedad de recursos y actividades, como videos, juegos,
-            ejercicios y contenido cultural, que hacen el aprendizaje de idiomas más atractivo
-            y enriquecedor.
+            Nuestro equipo de profesionales altamente calificados trabaja conjuntamente para proporcionar
+            recursos y actividades atractivas, como videos, juegos, ejercicios y contenido cultural. En
+            LinguaIdeas, nos enfocamos en ofrecer estrategias de estudio transformadoras que se ajusten a
+            los estilos de aprendizaje individuales de nuestros usuarios, garantizando una experiencia de
+            aprendizaje más efectiva y satisfactoria.
             </p>
 
             <p>

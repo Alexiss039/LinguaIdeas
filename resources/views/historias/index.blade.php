@@ -54,7 +54,14 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Lista de Historias</h2>
+          <h2>Actualidad</h2>
+
+          <p>
+          Sumérgete en el mundo del inglés a través de las noticias de actualidad y farándula. Acá te
+          presentamos las noticias más relevantes y populares del momento, desde eventos de la industria
+          del entretenimiento hasta historias virales que captan la atención del público. Mantente
+          informado y aprende inglés mientras te diviertes conociendo lo que está sucediendo en el mundo.
+          </p>
         </div>      
 
         <div class="tab-container">
