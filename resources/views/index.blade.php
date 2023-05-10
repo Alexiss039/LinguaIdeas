@@ -75,32 +75,32 @@
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="bi bi-emoji-smile"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Lecciones::count() }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Lecciones</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="bi bi-journal-richtext"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Ejercicios::count() }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Ejercicios</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="bi bi-clock"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Pronunciacion::count() }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Pronunciación</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="bi bi-award"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Gramatica::count() }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Gramática</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
                   </div>
                 </div>
               </div>

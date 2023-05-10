@@ -70,9 +70,6 @@ class LeccionesController extends Controller
      */
     public function store(Request $request)
     {  
-        $validatedData = $request->validate([
-            'recurso' => 'mimes:pdf,doc,docx,xlsx,xls,ppt,pptx'
-        ]);
 
        $lecciones = new Lecciones();
        $lecciones->tipo = $request->tipo;
@@ -84,6 +81,9 @@ class LeccionesController extends Controller
         $lecciones->imagen = $archivo->getClientOriginalName();
         }
        if($request->hasFile('recurso')){
+        $validatedData = $request->validate([
+            'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx'
+        ]);
         $archivo =$request->file('recurso');
         $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
         $lecciones->recurso = $archivo->getClientOriginalName();

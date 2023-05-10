@@ -14,7 +14,7 @@
               <div class="card card-plain mt-1">
                 <div align="center">
                   <a href="{{ url('/') }}">
-                    <img src="http://linguazone.test/assets/img/fon.png" style="width: 190px; height: 190px;" alt="Logo">
+                    <img src="https://linguaideas.com/assets/img/fon.gif" style="width: 190px; height: 190px;" alt="Logo">
                   </a>
                 </div>
                 <div class="card-header pb-0 text-center bg-transparent">
