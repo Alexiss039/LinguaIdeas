@@ -59,22 +59,22 @@
                                 {{ $prueba->nombre }}
                             </th>
                             <td>
-                                {{ $prueba->descripcion }}
+                            {{ substr($prueba->descripcion, 0, 13) }}{{ strlen($prueba->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($prueba->imagen) ? $prueba->imagen : 'N/A' }}
+                            {{ !empty($prueba->imagen) ? substr($prueba->imagen, 0, 13) . (strlen($prueba->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($prueba->recurso) ? $prueba->recurso : 'N/A' }}
+                            {{ !empty($prueba->recurso) ? substr($prueba->recurso, 0, 13) . (strlen($prueba->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($prueba->link) ? $prueba->link : 'N/A' }}
+                            {{ !empty($prueba->link) ? substr($prueba->link, 0, 13) . (strlen($prueba->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($prueba->archivo) ? $prueba->archivo : 'N/A' }}                               
+                            {{ !empty($prueba->archivo) ? substr($prueba->archivo, 0, 13) . (strlen($prueba->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($prueba->enlace) ? $prueba->enlace : 'N/A' }}                               
+                            {{ !empty($prueba->enlace) ? substr($prueba->enlace, 0, 13) . (strlen($prueba->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

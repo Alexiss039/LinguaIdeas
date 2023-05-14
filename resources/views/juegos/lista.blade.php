@@ -59,22 +59,23 @@
                                 {{ $juego->nombre }}
                             </th>
                             <td>
-                                {{ $juego->descripcion }}
+                            {{ substr($juego->descripcion, 0, 13) }}{{ strlen($juego->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($juego->imagen) ? $juego->imagen : 'N/A' }}
+                            {{ !empty($juego->imagen) ? substr($juego->imagen, 0, 13) . (strlen($juego->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($juego->recurso) ? $juego->recurso : 'N/A' }}
+                            {{ !empty($juego->recurso) ? substr($juego->recurso, 0, 13) . (strlen($juego->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($juego->link) ? $juego->link : 'N/A' }}
+                            {{ !empty($juego->link) ? substr($juego->link, 0, 13) . (strlen($juego->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($juego->archivo) ? $juego->archivo : 'N/A' }}                               
+                            {{ !empty($juego->archivo) ? substr($juego->archivo, 0, 13) . (strlen($juego->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($juego->enlace) ? $juego->enlace : 'N/A' }}                               
+                            {{ !empty($juego->enlace) ? substr($juego->enlace, 0, 13) . (strlen($juego->enlace) > 13 ? '...' : '') : 'N/A' }}                               
+                            </td>                     
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

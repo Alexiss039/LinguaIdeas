@@ -59,22 +59,22 @@
                                 {{ $tema->nombre }}
                             </th>
                             <td>
-                                {{ $tema->descripcion }}
+                            {{ substr($tema->descripcion, 0, 13) }}{{ strlen($tema->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($tema->imagen) ? $tema->imagen : 'N/A' }}
+                            {{ !empty($tema->imagen) ? substr($tema->imagen, 0, 13) . (strlen($tema->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($tema->recurso) ? $tema->recurso : 'N/A' }}
+                            {{ !empty($tema->recurso) ? substr($tema->recurso, 0, 13) . (strlen($tema->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($tema->link) ? $tema->link : 'N/A' }}
+                            {{ !empty($tema->link) ? substr($tema->link, 0, 13) . (strlen($tema->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($tema->archivo) ? $tema->archivo : 'N/A' }}                               
+                            {{ !empty($tema->archivo) ? substr($tema->archivo, 0, 13) . (strlen($tema->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($tema->enlace) ? $tema->enlace : 'N/A' }}                               
+                            {{ !empty($tema->enlace) ? substr($tema->enlace, 0, 13) . (strlen($tema->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

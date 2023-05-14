@@ -59,22 +59,22 @@
                                 {{ $evento->nombre }}
                             </th>
                             <td>
-                                {{ $evento->descripcion }}
+                            {{ substr($evento->descripcion, 0, 13) }}{{ strlen($evento->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($evento->imagen) ? $evento->imagen : 'N/A' }}
+                            {{ !empty($evento->imagen) ? substr($evento->imagen, 0, 13) . (strlen($evento->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($evento->recurso) ? $evento->recurso : 'N/A' }}
+                            {{ !empty($evento->recurso) ? substr($evento->recurso, 0, 13) . (strlen($evento->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($evento->link) ? $evento->link : 'N/A' }}
+                            {{ !empty($evento->link) ? substr($evento->link, 0, 13) . (strlen($evento->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($evento->archivo) ? $evento->archivo : 'N/A' }}                               
+                            {{ !empty($evento->archivo) ? substr($evento->archivo, 0, 13) . (strlen($evento->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($evento->enlace) ? $evento->enlace : 'N/A' }}                               
+                            {{ !empty($evento->enlace) ? substr($evento->enlace, 0, 13) . (strlen($evento->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

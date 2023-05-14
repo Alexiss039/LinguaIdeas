@@ -1,3 +1,12 @@
+<?php
+
+$leccion = \App\Models\Lecciones::count();
+$ejercicio = \App\Models\Ejercicios::count();
+
+$actividades = $leccion + $ejercicio;
+
+?>
+
 @extends('welcome')
 
 @section('content')
@@ -74,33 +83,34 @@
               <div class="row">
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="bi bi-emoji-smile"></i>
-                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Lecciones::count() }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Lecciones</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                  <i class="bi bi-activity" style="color: rgb(97, 203, 229);"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="{{ $acti }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Actividades</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="bi bi-journal-richtext"></i>
-                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Ejercicios::count() }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Ejercicios</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+                  <i class="bi bi-collection-play" style="color: rgb(97, 203, 229);"></i>
+                    <span data-purecounter-start="0" data-purecounter-end=" {{ $entretenimiento }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Entretenimiento</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="bi bi-clock"></i>
-                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Pronunciacion::count() }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Pronunciación</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+                  
+                  <i class="bi bi-mic-fill" style="color: rgb(97, 203, 229);"></i>
+                    <span data-purecounter-start="0" data-purecounter-end=" {{ $podcast }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Podcast</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
                   </div>
                 </div>
 
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="bi bi-award"></i>
-                    <span data-purecounter-start="0" data-purecounter-end=" {{ \App\Models\Gramatica::count() }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Gramática</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+                  <i class="bi bi-newspaper" style="color: rgb(97, 203, 229);"></i>
+                    <span data-purecounter-start="0" data-purecounter-end=" {{ $noticias }}" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Noticias</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
                   </div>
                 </div>
               </div>
@@ -234,42 +244,34 @@
         </div>
 
         <div class="row">
-          <div class="col-md-6 col-lg-3 align-items-stretch mb-5 mb-lg-0">
+          <div class="col-md-6 col-lg-4 align-items-stretch mb-5 mb-lg-0">
             <a href="{{ route('videos.index')}}">
                 <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                  <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                  <h4 class="title">Videos</h4>
+                  <div class="icon d-flex justify-content-center"><i class="bi bi-camera-video"></i></div>
+                  <h4 class="title" style="text-align:center;">Videos</h4>
                   <!-- <p class="description">Gramática en inglés explicada de forma sencilla</p> -->
                 </div>
             </a>
           </div>
 
-          <div class="col-md-6 col-lg-3 align-items-stretch mb-5 mb-lg-0">
+          <div class="col-md-6 col-lg-4 align-items-stretch mb-5 mb-lg-0">
             <a href="{{ route('memes.index')}}">  
               <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon"><i class="bx bx-file"></i></div>
-                <h4 class="title">Memes</h4>
+                <div class="icon d-flex justify-content-center"><i class="bi bi-emoji-sunglasses"></i></div>
+                <h4 class="title" style="text-align:center;">Memes</h4>
                 <!-- <p class="description">Vocabulario en inglés esencial y útil</p> -->
               </div>
             </a>
           </div>
 
-          <div class="col-md-6 col-lg-3 align-items-stretch mb-5 mb-lg-0">
+          <div class="col-md-6 col-lg-4 align-items-stretch mb-5 mb-lg-0">
             <a href="{{ route('historias.index')}}">    
                 <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                  <div class="icon"><i class="bx bx-tachometer"></i></div>
-                  <h4 class="title">Historias</h4>
+                  <div class="icon d-flex justify-content-center"><i class='bi bi-layout-text-window-reverse'></i></div>
+                  <h4 class="title" style="text-align:center;">Actualidad</h4>
                   <!-- <p class="description">Consejos efectivos para aprender inglés de forma autodidacta</p> -->
                 </div>
             </a>
-          </div>
-
-          <div class="col-md-6 col-lg-3 align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4 class="title"><a href="">Actualidad</a></h4>
-              <!-- <p class="description">Recursos gratuitos en inglés para estudiantes</p> -->
-            </div>
           </div>
 
         </div>
@@ -360,12 +362,12 @@
         <div class="row" style="justify-content:space-around;">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <a href="{{ route('temas.index')}}">
-              <div class="icon-box iconbox-yellow">
+              <div class="icon-box iconbox-blue">
                 <div class="icon">
                   <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                     <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
                   </svg>
-                  <i class="bx bxl-dribbble"></i>
+                  <i class='bi bi-headphones'></i>
                 </div>
                 <h4>Temas interesantes para practicar listening</h4>
           
@@ -375,12 +377,12 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <a href="{{ route('entrevistas.index')}}">  
-              <div class="icon-box iconbox-red">
+              <div class="icon-box iconbox-blue">
                 <div class="icon">
                   <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                     <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
                   </svg>
-                  <i class="bx bx-file"></i>
+                  <i class='bi bi-people'></i>
                 </div>
                 <h4>Entrevistas con hablantes nativos y expertos en la enseñanza del inglés</h4>
              
@@ -428,7 +430,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <a href="{{ route('examenes.index')}}">
               <div class="icon-box">
-                <div class="icon"><i class="bx bx-world"></i></div>
+                <div class="icon"><i class='bi bi-card-checklist'></i></div>
                 <h4><span>Exámenes de certificación (IELTS, TOEFL, Cambridge)</span> </h4>
     
               </div>
@@ -438,7 +440,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <a href="{{ route('innovacion.index')}}">  
               <div class="icon-box">
-                <div class="icon"><i class="bx bx-slideshow"></i></div>
+                <div class="icon"><i class='bi bi-magic'></i></div>
                 <h4><span> Innovaciones y tendencias en la enseñanza del inglés</span></h4>
          
               </div>
@@ -448,7 +450,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <a href="{{ route('eventos.index')}}">  
               <div class="icon-box">
-                <div class="icon"><i class="bx bx-arch"></i></div>
+                <div class="icon"><i class='bi bi-calendar4-event'></i></div>
                 <h4><span> Eventos y cursos de inglés online</span></h4>
 
               </div>

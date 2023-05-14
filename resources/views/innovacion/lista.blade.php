@@ -59,22 +59,22 @@
                                 {{ $inno->nombre }}
                             </th>
                             <td>
-                                {{ $inno->descripcion }}
+                            {{ substr($inno->descripcion, 0, 13) }}{{ strlen($inno->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($inno->imagen) ? $inno->imagen : 'N/A' }}
+                            {{ !empty($inno->imagen) ? substr($inno->imagen, 0, 13) . (strlen($inno->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($inno->recurso) ? $inno->recurso : 'N/A' }}
+                            {{ !empty($inno->recurso) ? substr($inno->recurso, 0, 13) . (strlen($inno->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($inno->link) ? $inno->link : 'N/A' }}
+                            {{ !empty($inno->link) ? substr($inno->link, 0, 13) . (strlen($inno->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($inno->archivo) ? $inno->archivo : 'N/A' }}                               
+                            {{ !empty($inno->archivo) ? substr($inno->archivo, 0, 13) . (strlen($inno->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($inno->enlace) ? $inno->enlace : 'N/A' }}                               
+                            {{ !empty($inno->enlace) ? substr($inno->enlace, 0, 13) . (strlen($inno->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

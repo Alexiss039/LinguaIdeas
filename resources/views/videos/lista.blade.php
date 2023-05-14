@@ -51,11 +51,13 @@
                                 {{ $video->nombre }}
                             </th>
                             <td>
-                                {{ $video->descripcion }}
+                            {{ substr($video->descripcion, 0, 13) }}{{ strlen($video->descripcion) > 13 ? "..." : "" }}
                             </td>
+                        
                             <td>
-                            {{ !empty($video->link) ? $video->link : 'N/A' }}
+                            {{ !empty($video->link) ? substr($video->link, 0, 13) . (strlen($video->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
+                   
                            
                             <td class="d-flex justify-content-center btn-group">
                                 

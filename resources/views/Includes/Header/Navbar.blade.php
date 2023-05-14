@@ -116,8 +116,6 @@
           <li><a href="{{ route('testimonios.index')}}">Comunidad</a></li>
           @if (auth()->check())
           <li><a href="{{ route('login') }}">Panel</a></li>          
-          @else
-          <li><a href="{{ route('login') }}">Login</a></li>
           @endif
           
 

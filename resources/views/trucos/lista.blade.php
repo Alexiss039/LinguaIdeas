@@ -59,22 +59,22 @@
                                 {{ $truco->nombre }}
                             </th>
                             <td>
-                                {{ $truco->descripcion }}
+                            {{ substr($truco->descripcion, 0, 13) }}{{ strlen($truco->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($truco->imagen) ? $truco->imagen : 'N/A' }}
+                            {{ !empty($truco->imagen) ? substr($truco->imagen, 0, 13) . (strlen($truco->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($truco->recurso) ? $truco->recurso : 'N/A' }}
+                            {{ !empty($truco->recurso) ? substr($truco->recurso, 0, 13) . (strlen($truco->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($truco->link) ? $truco->link : 'N/A' }}
+                            {{ !empty($truco->link) ? substr($truco->link, 0, 13) . (strlen($truco->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($truco->archivo) ? $truco->archivo : 'N/A' }}                               
+                            {{ !empty($truco->archivo) ? substr($truco->archivo, 0, 13) . (strlen($truco->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($truco->enlace) ? $truco->enlace : 'N/A' }}                               
+                            {{ !empty($truco->enlace) ? substr($truco->enlace, 0, 13) . (strlen($truco->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

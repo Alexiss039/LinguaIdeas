@@ -51,10 +51,10 @@
                                 {{ $examen->nombre }}
                             </th>
                             <td>
-                                {{ $examen->descripcion }}
+                            {{ substr($examen->descripcion, 0, 13) }}{{ strlen($examen->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                                {{ $examen->enlace }}
+                            {{ !empty($examen->enlace) ? substr($examen->enlace, 0, 13) . (strlen($examen->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

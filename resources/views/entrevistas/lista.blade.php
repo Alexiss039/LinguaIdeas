@@ -59,22 +59,22 @@
                                 {{ $entrevista->nombre }}
                             </th>
                             <td>
-                                {{ $entrevista->descripcion }}
+                            {{ substr($entrevista->descripcion, 0, 13) }}{{ strlen($entrevista->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($entrevista->imagen) ? $entrevista->imagen : 'N/A' }}
+                            {{ !empty($entrevista->imagen) ? substr($entrevista->imagen, 0, 13) . (strlen($entrevista->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($entrevista->recurso) ? $entrevista->recurso : 'N/A' }}
+                            {{ !empty($entrevista->recurso) ? substr($entrevista->recurso, 0, 13) . (strlen($entrevista->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($entrevista->link) ? $entrevista->link : 'N/A' }}
+                            {{ !empty($entrevista->link) ? substr($entrevista->link, 0, 13) . (strlen($entrevista->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($entrevista->archivo) ? $entrevista->archivo : 'N/A' }}                               
+                            {{ !empty($entrevista->archivo) ? substr($entrevista->archivo, 0, 13) . (strlen($entrevista->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($entrevista->enlace) ? $entrevista->enlace : 'N/A' }}                               
+                            {{ !empty($entrevista->enlace) ? substr($entrevista->enlace, 0, 13) . (strlen($entrevista->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">

@@ -59,22 +59,22 @@
                                 {{ $meme->nombre }}
                             </th>
                             <td>
-                                {{ $meme->descripcion }}
+                            {{ substr($meme->descripcion, 0, 13) }}{{ strlen($meme->descripcion) > 13 ? "..." : "" }}
                             </td>
                             <td>
-                            {{ !empty($meme->imagen) ? $meme->imagen : 'N/A' }}
+                            {{ !empty($meme->imagen) ? substr($meme->imagen, 0, 13) . (strlen($meme->imagen) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($meme->recurso) ? $meme->recurso : 'N/A' }}
+                            {{ !empty($meme->recurso) ? substr($meme->recurso, 0, 13) . (strlen($meme->recurso) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($meme->link) ? $meme->link : 'N/A' }}
+                            {{ !empty($meme->link) ? substr($meme->link, 0, 13) . (strlen($meme->link) > 13 ? '...' : '') : 'N/A' }}
                             </td>
                             <td>
-                            {{ !empty($meme->archivo) ? $meme->archivo : 'N/A' }}                               
+                            {{ !empty($meme->archivo) ? substr($meme->archivo, 0, 13) . (strlen($meme->archivo) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
-                            {{ !empty($meme->enlace) ? $meme->enlace : 'N/A' }}                               
+                            {{ !empty($meme->enlace) ? substr($meme->enlace, 0, 13) . (strlen($meme->enlace) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                            
                             <td class="d-flex justify-content-center btn-group">
