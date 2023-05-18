@@ -85,7 +85,7 @@ $actividades = $leccion + $ejercicio;
                   <div class="count-box">
                   <i class="bi bi-activity" style="color: rgb(97, 203, 229);"></i>
                     <span data-purecounter-start="0" data-purecounter-end="{{ $acti }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Actividades</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
+                    <p><strong>Actividades</strong> disponibles para mejorar tus habilidades en el idioma de manera efectiva.</p>
                   </div>
                 </div>
 
@@ -93,7 +93,7 @@ $actividades = $leccion + $ejercicio;
                   <div class="count-box">
                   <i class="bi bi-collection-play" style="color: rgb(97, 203, 229);"></i>
                     <span data-purecounter-start="0" data-purecounter-end=" {{ $entretenimiento }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Entretenimiento</strong> adipisci atque cum quia aspernatur totam laudantium et quia dere tan</p>
+                    <p><strong>Entretenimientos</strong> disponibles para mantenerte entretenido mientras aprendes.</p>
                   </div>
                 </div>
 
@@ -102,7 +102,7 @@ $actividades = $leccion + $ejercicio;
                   
                   <i class="bi bi-mic-fill" style="color: rgb(97, 203, 229);"></i>
                     <span data-purecounter-start="0" data-purecounter-end=" {{ $podcast }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Podcast</strong> aut commodi quaerat modi aliquam nam ducimus aut voluptate non vel</p>
+                    <p><strong>Podcast</strong> de episodios temáticos llenos de consejos prácticos y experiencias inspiradoras.</p>
                   </div>
                 </div>
 
@@ -110,7 +110,7 @@ $actividades = $leccion + $ejercicio;
                   <div class="count-box">
                   <i class="bi bi-newspaper" style="color: rgb(97, 203, 229);"></i>
                     <span data-purecounter-start="0" data-purecounter-end=" {{ $noticias }}" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Noticias</strong> rerum asperiores dolor alias quo reprehenderit eum et nemo pad der</p>
+                    <p><strong>Noticias</strong> sobre exámenes de certificación, innovaciones y tendencias educativas.</p>
                   </div>
                 </div>
               </div>
