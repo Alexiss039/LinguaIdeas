@@ -20,13 +20,16 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('i
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 //Nosotros
 Route::get('nosotros/index', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros.index');
 
 
 Route::prefix('')->middleware(['auth:sanctum', 'verified'])->group(function () {
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
     Route::get('lecciones/lista', [App\Http\Controllers\LeccionesController::class, 'lista'])->name('lecciones.lista');
     Route::get('lecciones/create', [App\Http\Controllers\LeccionesController::class, 'create'])->name('lecciones.create');

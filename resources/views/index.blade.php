@@ -144,7 +144,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Lecciones.gif");' data-aos="fade-up" data-aos-delay="100">
               <a href="{{ route('lecciones.index')}}">
                 <div class="card-body">
-                  <h5 class="card-title">Lecciones</h5>
+                  <h5 class="card-title">Lessons</h5>
                   <!-- <p class="card-text">Lecciones interactivas en video para aprender inglés</p> -->
                 </div>
               </a>
@@ -154,7 +154,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Ejercicios.gif");' data-aos="fade-up" data-aos-delay="200">
               <a href="{{ route('ejercicios.index')}}">  
                 <div class="card-body">
-                  <h5 class="card-title">Ejercicios</h5>
+                  <h5 class="card-title">Exercises</h5>
                   <!-- <p class="card-text">Ejercicios de gramática y vocabulario en inglés</p> -->
                 </div>
               </a>
@@ -164,7 +164,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Juegos.gif");' data-aos="fade-up" data-aos-delay="100">
               <a href="{{ route('juegos.index')}}">  
                 <div class="card-body">
-                  <h5 class="card-title">Juegos</h5>
+                  <h5 class="card-title">Games</h5>
                   <!-- <p class="card-text">Juegos en línea y apps para aprender inglés</p>                 -->
                 </div>
               </a>
@@ -174,7 +174,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Recursos.gif");' data-aos="fade-up" data-aos-delay="200">
               <a href="{{ route('recursos.index')}}">  
                 <div class="card-body">
-                  <h5 class="card-title">Recursos</h5>
+                  <h5 class="card-title">Resources</h5>
                   <!-- <p class="card-text">Recursos gratuitos en inglés para estudiantes</p>               -->
                 </div>
               </a>
@@ -187,7 +187,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Pronunciacion.gif");' data-aos="fade-up" data-aos-delay="100">
               <a href="{{ route('pronunciacion.index')}}">  
                 <div class="card-body">
-                  <h5 class="card-title">Pronunciación</h5>
+                  <h5 class="card-title">Pronunciation</h5>
                   <!-- <p class="card-text">Lecciones interactivas en video para aprender inglés</p>             -->
                 </div>
               </a>
@@ -197,7 +197,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Gramatica.gif");' data-aos="fade-up" data-aos-delay="200">
               <a href="{{ route('gramatica.index')}}">  
                 <div class="card-body">
-                  <h5 class="card-title">Gramática</h5>
+                  <h5 class="card-title">Grammar</h5>
                   <!-- <p class="card-text">Ejercicios de gramática y vocabulario en inglés</p>                 -->
                 </div>
               </a>
@@ -207,7 +207,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Pruebas.gif");' data-aos="fade-up" data-aos-delay="100">
                <a href="{{ route('pruebas.index')}}">    
                 <div class="card-body">
-                  <h5 class="card-title">Pruebas</h5>
+                  <h5 class="card-title">Tests</h5>
                   <!-- <p class="card-text">Juegos en línea y apps para aprender inglés</p>               -->
                 </div>
                </a>
@@ -217,7 +217,7 @@ $actividades = $leccion + $ejercicio;
             <div class="card" style='background-image: url("assets/img/Trucos.gif");' data-aos="fade-up" data-aos-delay="200">
                <a href="{{ route('trucos.index')}}">   
                 <div class="card-body">
-                  <h5 class="card-title">Trucos</h5>
+                  <h5 class="card-title">Tricks</h5>
                   <!-- <p class="card-text">Recursos gratuitos en inglés para estudiantes</p>                 -->
                 </div>
                </a>
