@@ -54,7 +54,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Listado de Trucos</h2>
+          <h2 class="no-before no-after">Listado de Trucos</h2>
           <p>
           Descubre nuestros trucos y consejos para aprender inglés de manera más eficiente y efectiva.
           Desde técnicas de memorización hasta estrategias para mejorar la comprensión auditiva, te

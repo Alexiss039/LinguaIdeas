@@ -54,7 +54,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Listado de Juegos</h2>
+          <h2 class="no-before no-after">Listado de Juegos</h2>
 
           <p>
           Aprende inglés mientras te diviertes con una amplia variedad de juegos educativos en línea. En

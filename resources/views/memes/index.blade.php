@@ -54,7 +54,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Listado de Memes</h2>
+          <h2 class="no-before no-after">Listado de Memes</h2>
 
           <p>
           Descubre cómo los memes en inglés pueden hacer que el aprendizaje del idioma sea aún más

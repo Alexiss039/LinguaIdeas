@@ -54,7 +54,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Listado de eventos</h2>
+          <h2 class="no-before no-after">Listado de eventos</h2>
 
           <p>
           Consulta nuestra selección de eventos y cursos de inglés en línea y presenciales que te ayudarán a

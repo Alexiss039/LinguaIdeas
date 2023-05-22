@@ -54,7 +54,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Listado de pruebas</h2>
+          <h2 class="no-before no-after">Listado de pruebas</h2>
           <p>
           Evalúa tu progreso e identifica áreas de mejora con nuestras pruebas de inglés y otras muchas
           disponibles en línea. Estas pruebas abarcan diferentes temas y niveles, proporcionándote una

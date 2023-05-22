@@ -51,7 +51,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2>Lista de examenes</h2>
+          <h2 class="no-before no-after">Lista de examenes</h2>
 
           <p>
           Entérate de las últimas noticias y cambios en los exámenes de certificación de inglés, como IELTS,
