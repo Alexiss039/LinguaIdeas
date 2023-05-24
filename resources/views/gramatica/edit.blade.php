@@ -40,34 +40,34 @@
                     @method('PUT')
                     <div class="form-group">
                         <label>Nombres</label>
-                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $gramatica->nombre) }}">
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $gramatica->nombre) }}" required>
                     </div>
             
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $gramatica->descripcion) }}">
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $gramatica->descripcion) }}" required>
                     </div>
                     @if ($gramatica->tipo == 'recurso')
                     <div class="form-group">
                         <label>Imagen</label>
-                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $gramatica->imagen) }}" required>
+                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $gramatica->imagen) }}" >
                     </div>
                     @endif                 
                     <div class="form-group">
                         <label>Recurso</label>
-                        <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $gramatica->recurso) }}" required>
+                        <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $gramatica->recurso) }}" >
                     </div> 
                     <div class="form-group">
                         <label>Video</label>
-                        <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $gramatica->link) }}" required>
+                        <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $gramatica->link) }}" >
                     </div>                        
                     <div class="form-group">
                         <label>mp3 o mp4</label>
-                        <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $gramatica->archivo) }}" required>
+                        <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $gramatica->archivo) }}" >
                     </div>
                     <div class="form-group">
                         <label>Enlace</label>
-                        <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $gramatica->enlace) }}" required>
+                        <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $gramatica->enlace) }}" >
                     </div>  
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn-get-started">Actualizar datos</button>

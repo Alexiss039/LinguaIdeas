@@ -40,11 +40,11 @@
                     @method('PUT')
                     <div class="form-group">
                         <label>Nombres</label>
-                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $videos->nombre) }}">
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $videos->nombre) }}" required>
                     </div>            
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $videos->descripcion) }}">
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $videos->descripcion) }}" required>
                     </div>                        
           
                     <div class="form-group">

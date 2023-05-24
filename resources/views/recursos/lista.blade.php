@@ -56,7 +56,7 @@
                             {{ $likes[$recurso->id] }}
                             </th>
                             <th>
-                                {{ $recurso->nombre }}
+                            {{ substr($recurso->nombre, 0, 13) }}{{ strlen($recurso->nombre) > 13 ? "..." : "" }}
                             </th>
                             <td>
                             {{ substr($recurso->descripcion, 0, 13) }}{{ strlen($recurso->descripcion) > 13 ? "..." : "" }}

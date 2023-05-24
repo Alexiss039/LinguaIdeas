@@ -56,7 +56,7 @@
                             {{ $likes[$juego->id] }}
                             </th>
                             <th>
-                                {{ $juego->nombre }}
+                            {{ substr($juego->nombre, 0, 13) }}{{ strlen($juego->nombre) > 13 ? "..." : "" }}
                             </th>
                             <td>
                             {{ substr($juego->descripcion, 0, 13) }}{{ strlen($juego->descripcion) > 13 ? "..." : "" }}

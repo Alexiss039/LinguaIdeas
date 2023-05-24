@@ -56,7 +56,7 @@
                             {{ $likes[$grama->id] }}
                             </th>
                             <th>
-                                {{ $grama->nombre }}
+                            {{ substr($grama->nombre, 0, 13) }}{{ strlen($grama->nombre) > 13 ? "..." : "" }}
                             </th>
                             <td>
                             {{ substr($grama->descripcion, 0, 13) }}{{ strlen($grama->descripcion) > 13 ? "..." : "" }}

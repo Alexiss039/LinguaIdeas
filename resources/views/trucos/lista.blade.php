@@ -56,7 +56,7 @@
                             {{ $likes[$truco->id] }}
                             </th>
                             <th>
-                                {{ $truco->nombre }}
+                            {{ substr($truco->nombre, 0, 13) }}{{ strlen($truco->nombre) > 13 ? "..." : "" }}
                             </th>
                             <td>
                             {{ substr($truco->descripcion, 0, 13) }}{{ strlen($truco->descripcion) > 13 ? "..." : "" }}

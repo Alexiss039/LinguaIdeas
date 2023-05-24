@@ -56,7 +56,7 @@
                             {{ $likes[$meme->id] }}
                             </th>
                             <th>
-                                {{ $meme->nombre }}
+                            {{ substr($meme->nombre, 0, 13) }}{{ strlen($meme->nombre) > 13 ? "..." : "" }}
                             </th>
                             <td>
                             {{ substr($meme->descripcion, 0, 13) }}{{ strlen($meme->descripcion) > 13 ? "..." : "" }}

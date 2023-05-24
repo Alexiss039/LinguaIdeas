@@ -40,34 +40,34 @@
                     @method('PUT')
                     <div class="form-group">
                         <label>Nombres</label>
-                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $eventos->nombre) }}">
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $eventos->nombre) }}" required>
                     </div>
             
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $eventos->descripcion) }}">
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $eventos->descripcion) }}" required>
                     </div>
                     @if ($eventos->tipo == 'recurso')
                     <div class="form-group">
                         <label>Imagen</label>
-                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $eventos->imagen) }}" required>
+                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $eventos->imagen) }}" >
                     </div>
                     @endif                 
                     <div class="form-group">
                         <label>Recurso</label>
-                        <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $eventos->recurso) }}" required>
+                        <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $eventos->recurso) }}" >
                     </div> 
                     <div class="form-group">
                         <label>Video</label>
-                        <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $eventos->link) }}" required>
+                        <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $eventos->link) }}" >
                     </div>                        
                     <div class="form-group">
                         <label>mp3 o mp4</label>
-                        <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $eventos->archivo) }}" required>
+                        <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $eventos->archivo) }}" >
                     </div>
                     <div class="form-group">
                         <label>Enlace</label>
-                        <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $eventos->enlace) }}" required>
+                        <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $eventos->enlace) }}" >
                     </div>  
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn-get-started">Actualizar datos</button>

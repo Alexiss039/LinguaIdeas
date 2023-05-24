@@ -40,34 +40,34 @@
                     @method('PUT')
                     <div class="form-group">
                         <label>Nombres</label>
-                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $innovacion->nombre) }}">
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $innovacion->nombre) }}" required>
                     </div>
             
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $innovacion->descripcion) }}">
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $innovacion->descripcion) }}" required>
                     </div>
                     @if ($innovacion->tipo == 'recurso')
                     <div class="form-group">
                         <label>Imagen</label>
-                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $innovacion->imagen) }}" required>
+                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $innovacion->imagen) }}" >
                     </div>
                     @endif                 
                     <div class="form-group">
                         <label>Recurso</label>
-                        <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $innovacion->recurso) }}" required>
+                        <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $innovacion->recurso) }}" >
                     </div> 
                     <div class="form-group">
                         <label>Video</label>
-                        <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $innovacion->link) }}" required>
+                        <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $innovacion->link) }}" >
                     </div>                        
                     <div class="form-group">
                         <label>mp3 o mp4</label>
-                        <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $innovacion->archivo) }}" required>
+                        <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $innovacion->archivo) }}" >
                     </div>
                     <div class="form-group">
                         <label>Enlace</label>
-                        <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $innovacion->enlace) }}" required>
+                        <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $innovacion->enlace) }}" >
                     </div>  
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn-get-started">Actualizar datos</button>

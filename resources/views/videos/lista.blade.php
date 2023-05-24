@@ -48,7 +48,7 @@
                             {{ $likes[$video->id] }}
                             </th>
                             <th>
-                                {{ $video->nombre }}
+                            {{ substr($video->nombre, 0, 13) }}{{ strlen($video->nombre) > 13 ? "..." : "" }}
                             </th>
                             <td>
                             {{ substr($video->descripcion, 0, 13) }}{{ strlen($video->descripcion) > 13 ? "..." : "" }}
