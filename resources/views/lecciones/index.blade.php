@@ -85,6 +85,7 @@
                             @php
                               $extension = pathinfo($recurso->recurso, PATHINFO_EXTENSION);
                             @endphp
+                            
                             @if ($extension == 'pdf')
                               <a class="btn-blue" href="{{ route('lecciones.show', $recurso) }}" target="_blank">Ver PDF</a>                              
                             @elseif(isset($recurso->recurso))
@@ -173,7 +174,7 @@
                                 </a>                      
                                 <h3>{{ $enlace->nombre }}</h3>
                                 <p>{{ $enlace->descripcion }}</p>
-                                <a href="{{$enlace->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
+                                <a href="{{$enlace->enlace}}" class="btn-blue" target="_blank" style="display: inline-block;">Ir al sitio web</a>
                                 <div class="likes-buttons">
                                   <form method="POST" action="{{ route('lecciones.dislike', ['id' => $recurso->id]) }}">
                                     @csrf                            

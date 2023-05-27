@@ -35,7 +35,7 @@
                     @endforeach
                 @endif
 
-                <form action="{{ route('pruebas.update',$pruebas->id) }}" method="POST">
+                <form action="{{ route('pruebas.update',$pruebas->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

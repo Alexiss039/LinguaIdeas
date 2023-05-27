@@ -149,7 +149,7 @@
                                       </div>
                                       @endforeach
                               @endif
-                              <form action="{{ route('memes.store')}}" method="POST">
+                              <form action="{{ route('memes.store')}}" method="POST" enctype="multipart/form-data">
                                       @csrf
                                           <!-- <label>Tipo</label> -->
                                           <div class="form-group">

@@ -6,7 +6,9 @@ $ejercicio = \App\Models\Ejercicios::count();
 $actividades = $leccion + $ejercicio;
 
 ?>
+<head>
 
+</head>
 @extends('welcome')
 
 @section('content')
@@ -19,8 +21,18 @@ $actividades = $leccion + $ejercicio;
           <h1 data-aos="fade-up">¡Aprende inglés fácil y rápido!</h1>
           <h2 data-aos="fade-up" data-aos-delay="400">¡Bienvenido a nuestro método divertido para aprender inglés!</h2>
           <div style="display: flex; justify-content: center;">
-            <div data-aos="fade-up" data-aos-delay="800">
-              <a href="#about" class="btn-get-started scrollto">Comencemos</a>
+            <button id="abrir-modal" class="btn-get-started scrollto">Comencemos</button>
+            <div id="mi-modal" class="ventana" style="display: none;">
+              <div class="ventana-contenido">
+                <!-- Contenido del modal -->
+                <span class="cerrar">&times;</span>
+                <div id="video-container">
+                <video id="video" controls style="width: 100%; height: 375px;">
+                    <source src="assets/videos/bienvenida.mp4" type="video/mp4">
+                    <!-- También puedes agregar otros formatos de video compatibles aquí -->
+                </video>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -612,4 +624,25 @@ línea.
 
   </main>
   <!-- End #main -->
+  <script>
+    var boton = document.getElementById("abrir-modal");
+    var modal = document.getElementById("mi-modal");
+
+    boton.onclick = function() {
+        modal.style.display = "block";
+        reproducirVideo();
+    }
+
+    function reproducirVideo() {
+        var video = document.getElementById("video");
+        video.play();
+    }
+
+    var cerrarBoton = document.getElementsByClassName("cerrar")[0];
+    cerrarBoton.onclick = function() {
+        var video = document.getElementById("video");
+        video.pause();
+        modal.style.display = "none";
+    }
+</script>
   @endsection
