@@ -196,41 +196,52 @@ class LeccionesController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {   
+    {
         $lecciones = Lecciones::find($id);
         $lecciones->nombre = $request->nombre;
         $lecciones->descripcion = $request->descripcion;
-        if($request->hasFile('imagen')){
-            $archivo =$request->file('imagen');
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
-            $lecciones->imagen = $archivo->getClientOriginalName();
-            }
-           if($request->hasFile('recurso')){
-            $archivo =$request->file('recurso');
-            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
-            $lecciones->recurso = $archivo->getClientOriginalName();
-            }
-            $lecciones->setVideoEmbedAttribute($request->input('link'));  
-            
-            // Validar que el archivo sea de tipo mp3 o mp4
-            $archivo = $request->file('archivo');
-            // Validar que el archivo no sea nulo
-            if (!is_null($archivo)) {
-            if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
-                
-                // Almacenar el archivo en el servidor
-                $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
-                $lecciones->archivo = $archivo->getClientOriginalName(); }
-            } else {
-                // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos
-                $lecciones->archivo = null;
     
+        if ($request->hasFile('imagen')) {
+            $archivo = $request->file('imagen');
+            $archivo->move(public_path() . '/recursos/', $archivo->getClientOriginalName());
+            $lecciones->imagen = $archivo->getClientOriginalName();
+        }
+    
+        if ($request->hasFile('recurso')) {
+            $archivo = $request->file('recurso');
+            $archivo->move(public_path() . '/lecciones/', $archivo->getClientOriginalName());
+            $lecciones->recurso = $archivo->getClientOriginalName();
+        }
+    
+        $lecciones->setVideoEmbedAttribute($request->input('link'));
+    
+        // Validar que el archivo sea de tipo mp3 o mp4
+        $archivo = $request->file('archivo');
+    
+        // Validar que el archivo no sea nulo
+        if (!is_null($archivo)) {
+            if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
+                // Almacenar el archivo en el servidor
+                $archivo->move(public_path() . '/recursos/', $archivo->getClientOriginalName());
+                $lecciones->archivo = $archivo->getClientOriginalName();
             }
-            $lecciones->enlace = $request->enlace;
-
+        } else {
+            // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos
+            $lecciones->archivo = null;
+        }
+    
+        $lecciones->enlace = $request->enlace;
+    
         $notificacion = 'La lección se ha actualizado correctamente';
-        $lecciones->save();      
-        return redirect()->route('lecciones.lista')->with(compact('notificacion'));
+        $lecciones->save();
+    
+        // Agregar los encabezados de respuesta para evitar la caché
+        return response()
+            ->redirectToRoute('lecciones.lista')
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->header('Cache-Control', 'post-check=0, pre-check=0')
+            ->header('Pragma', 'no-cache')
+            ->with(compact('notificacion'));
     }
 
     /**
