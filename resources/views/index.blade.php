@@ -85,12 +85,12 @@ $actividades = $leccion + $ejercicio;
     <section id="counts" class="counts">
       <div class="container">
 
-        <div class="row">
-          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start" data-aos="fade-right" data-aos-delay="150">
+        <div class="row justify-content-center">
+          <!-- <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start" data-aos="fade-right" data-aos-delay="150">
             <img src="assets/img/counts-img.svg" alt="" class="img-fluid">
-          </div>
+          </div> -->
 
-          <div class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0" data-aos="fade-left" data-aos-delay="300">
+          <div class="col-xl-10 d-flex align-items-stretch pt-4 pt-xl-0" data-aos="fade-left" data-aos-delay="300">
             <div class="content d-flex flex-column justify-content-center">
               <div class="row">
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
