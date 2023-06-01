@@ -82,7 +82,7 @@ class LeccionesController extends Controller
         }
        if($request->hasFile('recurso')){
         $validatedData = $request->validate([
-            'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx'
+            'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000'
         ]);
         $archivo =$request->file('recurso');
         $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
@@ -208,7 +208,7 @@ class LeccionesController extends Controller
         }
         if($request->hasFile('recurso')){
             $validatedData = $request->validate([
-                'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx'
+                'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000'
             ]);
             $archivo =$request->file('recurso');
             $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
