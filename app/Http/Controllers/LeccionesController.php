@@ -214,8 +214,8 @@ class LeccionesController extends Controller
             // Eliminar el recurso existente si hay uno
             if (!is_null($lecciones->recurso)) {
                 $rutaRecursoAnterior = public_path('/lecciones/') . $lecciones->recurso;
-                if (file_exists($rutaRecursoAnterior)) {
-                    unlink($rutaRecursoAnterior);
+                if (File::exists($rutaRecursoAnterior)) {
+                    File::deleteDirectory($rutaRecursoAnterior);
                 }
             }
     
