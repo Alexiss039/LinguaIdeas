@@ -206,14 +206,23 @@ class LeccionesController extends Controller
             $archivo->move(public_path() . '/recursos/', $archivo->getClientOriginalName());
             $lecciones->imagen = $archivo->getClientOriginalName();
         }
-        if($request->hasFile('recurso')){
+        if ($request->hasFile('recurso')) {
             $validatedData = $request->validate([
-                'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000'
+                'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',
             ]);
-            $archivo =$request->file('recurso');
-            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
-            $lecciones->recurso = $archivo->getClientOriginalName();
+    
+            // Eliminar el recurso existente si hay uno
+            if (!is_null($lecciones->recurso)) {
+                $rutaRecursoAnterior = public_path('/lecciones/') . $lecciones->recurso;
+                if (file_exists($rutaRecursoAnterior)) {
+                    unlink($rutaRecursoAnterior);
+                }
             }
+    
+            $archivo = $request->file('recurso');
+            $archivo->move(public_path('/lecciones/'), $archivo->getClientOriginalName());
+            $lecciones->recurso = $archivo->getClientOriginalName();
+        }
     
         $lecciones->setVideoEmbedAttribute($request->input('link'));
     
