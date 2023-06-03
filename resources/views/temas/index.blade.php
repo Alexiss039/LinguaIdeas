@@ -88,7 +88,7 @@
                             @if ($extension == 'pdf')
                               <a class="btn-blue" href="{{ route('temas.show', $recurso) }}" target="_blank">Ver PDF</a>                              
                             @elseif(isset($recurso->recurso))
-                            <a class="btn-blue" href="{{ asset('temas/' . $recurso->recurso) }}" target="_blank">Ver Documento</a>
+                            <a class="btn-blue" href="{{ asset('lecciones/' . $recurso->recurso) }}" target="_blank">Ver Documento</a>
                             @else
                             
                             @endif       
