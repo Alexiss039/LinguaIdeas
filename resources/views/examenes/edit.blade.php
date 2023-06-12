@@ -50,7 +50,12 @@
                     <div class="form-group">
                         <label>Enlace</label>
                         <input type="text" class="form-control" name="enlace" placeholder="(Opcional)" value="{{ old('enlace', $examenes->enlace) }}" required>
-                    </div>                      
+                    </div> 
+                    
+                    <label>Recurso</label>
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="recurso" required>
+                        </div>
               
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn-get-started">Actualizar datos</button>

@@ -114,6 +114,7 @@
               </ul>
           </li>
           <li><a href="{{ route('testimonios.index')}}">Comunidad</a></li>
+          <li><a href="{{ route('terminos.index')}}">TYC</a></li>
           @if (auth()->check())
           <li><a href="{{ route('login') }}">Panel</a></li>          
           @endif

@@ -14,7 +14,7 @@
             <div class="card-header border-0">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="mb-0">Editar Historia</h3>
+                        <h3 class="mb-0">Editar Actualidad</h3>
                     </div>
                     <div class="d-flex justify-content-end px-5">
                         <a href="{{ route('historias.lista')}}" class="btn-get-started">

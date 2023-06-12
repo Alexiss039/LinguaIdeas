@@ -45,6 +45,11 @@
                                           <div class="form-group">
                                             <input id="enlace" type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace') }}" required>
                                           </div>
+
+                                          <label>Recurso</label>
+                                          <div class="form-group">
+                                            <input type="file" class="form-control" name="recurso" required>
+                                          </div>
                                         
                                           <div class="d-flex justify-content-around">
                                           <button type="submit" class="btn-get-started">Registrar examen</button>

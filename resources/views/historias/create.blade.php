@@ -22,7 +22,7 @@
                   <div class="col-6">
                       <div class="card mb-4">
                           <div class="card-header pb-0">
-                            <h6>Registro de Historias</h6>
+                            <h6>Registro de Actualidad</h6>
                           </div>
                           <div class="d-flex justify-content-end px-5">
                                       <a href="{{ route('historias.lista')}}" class="btn-get-started">
@@ -64,7 +64,7 @@
                                           </div>
                                         
                                           <div class="d-flex justify-content-around">
-                                          <button type="submit" class="btn-get-started">Registrar Historia</button>
+                                          <button type="submit" class="btn-get-started">Registrar Actualidad</button>
                                           </div>                
                               </form>
                           </div>
@@ -78,7 +78,7 @@
                   <div class="col-6">
                       <div class="card mb-4">
                           <div class="card-header pb-0">
-                            <h6>Registro de Historias</h6>
+                            <h6>Registro de Actualidad</h6>
                           </div>
                           <div class="d-flex justify-content-end px-5">
                                       <a href="{{ route('historias.lista')}}" class="btn-get-started">
@@ -120,7 +120,7 @@
                                           </div>
                                         
                                           <div class="d-flex justify-content-around">
-                                          <button type="submit" class="btn-get-started">Registrar Historia</button>
+                                          <button type="submit" class="btn-get-started">Registrar Actualidad</button>
                                           </div>                
                               </form>
                           </div>
@@ -134,7 +134,7 @@
                   <div class="col-6">
                       <div class="card mb-4">
                           <div class="card-header pb-0">
-                            <h6>Registro de Historias</h6>
+                            <h6>Registro de Actualidad</h6>
                           </div>
                           <div class="d-flex justify-content-end px-5">
                                       <a href="{{ route('historias.lista')}}" class="btn-get-started">
@@ -174,7 +174,7 @@
                                           </div>
                                         
                                           <div class="d-flex justify-content-around">
-                                          <button type="submit" class="btn-get-started">Registrar Historia</button>
+                                          <button type="submit" class="btn-get-started">Registrar Actualidad</button>
                                           </div>                
                               </form>
                           </div>

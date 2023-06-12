@@ -232,6 +232,7 @@ Route::post('entrevistas/dislike', [App\Http\Controllers\EntrevistasController::
 
 //Examenes
 Route::get('examenes/index', [App\Http\Controllers\ExamenesController::class, 'index'])->name('examenes.index');
+Route::get('examenes/{id}', [App\Http\Controllers\ExamenesController::class, 'show'])->name('examenes.show');
 Route::post('examenes/like', [App\Http\Controllers\ExamenesController::class, 'like'])->name('examenes.like');
 Route::post('examenes/dislike', [App\Http\Controllers\ExamenesController::class, 'dislike'])->name('examenes.dislike');
 
@@ -249,6 +250,9 @@ Route::post('eventos/dislike', [App\Http\Controllers\EventosController::class, '
 
 //Testimonios
 Route::get('testimonios/index', [App\Http\Controllers\TestimoniosController::class, 'index'])->name('testimonios.index');
+
+//Terminos
+Route::get('terminos/index', [App\Http\Controllers\TerminosController::class, 'index'])->name('terminos.index');
 
 
 Route::get('/buscar', [\App\Http\Controllers\BusquedaController::class, 'buscar'])->name('buscar');

@@ -11,10 +11,10 @@
             <div class="card-header border-0">
                 <div class="row align-items-start justify-content-between">
                     <div class="col">
-                        <h3 class="mb-0">Historias</h3>
+                        <h3 class="mb-0">Actualidad</h3>
                     </div>
                     <div class="col float-right">
-                        <a href="{{ url('/historias/create') }}" class="btn-get-started" style="position: absolute; top: 0; right: 10;">Añadir historias</a>
+                        <a href="{{ url('/historias/create') }}" class="btn-get-started" style="position: absolute; top: 0; right: 10;">Añadir actualidad</a>
                     </div>
                 </div>
             </div>

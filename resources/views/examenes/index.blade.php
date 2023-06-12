@@ -66,7 +66,15 @@
                 <div class="box">
                   <h3>{{ $examen->nombre }}</h3>
                   <p>{{ $examen->descripcion }}</p>
-                  <a href="{{$examen->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
+                            @php
+                              $extension = pathinfo($examen->recurso, PATHINFO_EXTENSION);
+                            @endphp
+                            @if ($extension == 'pdf')
+                            <a class="btn-blue" href="{{ route('examenes.show', $examen->id) }}" target="_blanck">Ver PDF</a>
+                            @else
+                            <a href="{{$examen->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
+                            @endif
+                  
                   <div class="likes-buttons">
                                   <form method="POST" action="{{ route('examenes.dislike', ['id' => $examen->id]) }}">
                                     @csrf                            

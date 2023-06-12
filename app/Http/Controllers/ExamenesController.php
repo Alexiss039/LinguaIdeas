@@ -46,7 +46,12 @@ class ExamenesController extends Controller
        $examenes = new Examenes();
        $examenes->nombre = $request->nombre;
        $examenes->descripcion = $request->descripcion;
-       $examenes->enlace = $request->enlace;    
+       $examenes->enlace = $request->enlace;
+       if($request->hasFile('recurso')){
+        $archivo =$request->file('recurso');
+        $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+        $examenes->recurso = $archivo->getClientOriginalName();
+        }    
        $examenes->save();
        
 
@@ -108,12 +113,11 @@ class ExamenesController extends Controller
         return redirect()->route('examenes.index')->with('error', 'No se encontró el like correspondiente');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $examen = Examenes::findOrFail($id);
+         $ruta_base = 'lecciones/'; 'examen/';
+        return view('examenes.show', compact('examen', 'ruta_base'));
     }
 
     public function edit(string $id)
@@ -131,6 +135,11 @@ class ExamenesController extends Controller
         $examenes->nombre = $request->nombre;
         $examenes->descripcion = $request->descripcion;
         $examenes->enlace = $request->enlace;   
+        if($request->hasFile('recurso')){
+            $archivo =$request->file('recurso');
+            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+            $examenes->recurso = $archivo->getClientOriginalName();
+            }  
 
         $notificacion = 'El examen se ha actualizado correctamente';
         $examenes->save();      

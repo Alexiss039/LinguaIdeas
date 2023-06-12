@@ -78,8 +78,8 @@
                       @foreach($recursos as $recurso)
                         <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                           <div class="box">
-                            <a href="{{ route('memes.show', $recurso) }}" target="_blank">
-                            <img src="{{ asset('recursos/' . $recurso->imagen) }}" class="img-fluid" alt="">
+                            <a href="{{ asset('recursos/' . $recurso->imagen) }}" target="_blank">
+                            <img src="{{ asset('recursos/' . $recurso->imagen) }}" class="img-fluid" alt="" height="300px;">
                             </a>
                             <h3>{{ $recurso->nombre }}</h3>
                             <p>{{ $recurso->descripcion }}</p>
