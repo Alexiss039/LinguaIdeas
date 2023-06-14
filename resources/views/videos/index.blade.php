@@ -72,7 +72,7 @@
                  
                   <!-- <img src="https://img.freepik.com/vector-gratis/sol-brilla-cielo-azul-nubes-fondo-realista_1284-10467.jpg?w=2000" class="img-fluid" alt=""> -->
                   <h3>{{ $video->nombre }}</h3>
-                  <p>{{ $video->descripcion }}</p>
+                  <p class="description">{{ $video->descripcion }}</p>
                           <div class="likes-buttons">
                                   <form method="POST" action="{{ route('videos.dislike', ['id' => $video->id]) }}">
                                     @csrf                            

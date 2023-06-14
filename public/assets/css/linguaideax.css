@@ -2300,3 +2300,7 @@ cursor: pointer;
           padding-bottom: 75%;
       }
   }
+
+  .description {
+    word-wrap: break-word;
+  }

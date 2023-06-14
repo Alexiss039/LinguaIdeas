@@ -81,7 +81,7 @@
                             <img src="{{ asset('recursos/' . $recurso->imagen) }}" class="img-fluid" alt="">
                             </a>
                             <h3>{{ $recurso->nombre }}</h3>
-                            <p>{{ $recurso->descripcion }}</p>
+                            <p class="description">{{ $recurso->descripcion }}</p>
                             @php
                               $extension = pathinfo($recurso->recurso, PATHINFO_EXTENSION);
                             @endphp
@@ -125,7 +125,7 @@
                               <div class="box">
                               <?php echo html_entity_decode($multimedia->link); ?>
                                 <h3>{{ $multimedia->nombre }}</h3>
-                                <p>{{ $multimedia->descripcion }}</p>
+                                <p class="description">{{ $multimedia->descripcion }}</p>
                                 @if($multimedia->archivo && pathinfo($multimedia->archivo, PATHINFO_EXTENSION) == 'mp3')
                                 <audio controls style="width: 100%; display: block;">
                                     <source src="{{ asset('recursos/' . $multimedia->archivo) }}" type="audio/mp3">
@@ -171,7 +171,7 @@
                                 <img src="{{ asset('recursos/' . $enlace->imagen) }}" class="img-fluid" alt="">
                                 </a>                      
                                 <h3>{{ $enlace->nombre }}</h3>
-                                <p>{{ $enlace->descripcion }}</p>
+                                <p class="description">{{ $enlace->descripcion }}</p>
                                 <a href="{{$enlace->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
                                 <div class="likes-buttons">
                                   <form method="POST" action="{{ route('ejercicios.dislike', ['id' => $recurso->id]) }}">

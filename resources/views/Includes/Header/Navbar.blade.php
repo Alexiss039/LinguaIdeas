@@ -26,7 +26,7 @@
 
 
   <!-- Template Main CSS File -->
-  <link rel="stylesheet" href="{{ asset('assets/css/lingu.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/linguaideax.css')}}">
 
 </head>
 <div class="modal fade" id="buscarModal" tabindex="-1" role="dialog" aria-labelledby="buscarModalLabel" aria-hidden="true">

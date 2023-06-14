@@ -65,7 +65,7 @@
               <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="box">
                   <h3>{{ $examen->nombre }}</h3>
-                  <p>{{ $examen->descripcion }}</p>
+                  <p class="description">{{ $examen->descripcion }}</p>
                             @php
                               $extension = pathinfo($examen->recurso, PATHINFO_EXTENSION);
                             @endphp

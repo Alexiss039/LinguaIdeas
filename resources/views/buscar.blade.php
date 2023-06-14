@@ -36,7 +36,7 @@
                            
                                 @endif   
                                 <h3>{{ $resultado->nombre }}</h3>
-                                <p>{{ $resultado->descripcion }}</p>                          
+                                <p class="description">{{ $resultado->descripcion }}</p>                          
                                 @if ($resultado instanceof \App\Models\Lecciones && $resultado->recurso && $extension == 'pdf')
                                 <a class="btn-blue" href="{{ route('lecciones.show', $recurso) }}" target="_blank">Ver PDF</a>
                                 @elseif($resultado instanceof \App\Models\Ejercicios && $resultado->recurso && $extension == 'pdf')
