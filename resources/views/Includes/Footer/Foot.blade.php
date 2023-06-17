@@ -32,8 +32,13 @@
               <a href="https://www.youtube.com/channel/UCvHyt5fEgOzaNR1BmAR2_vA" class="youtube" target="_blank"><i class="bx bxl-youtube"></i></a>
             </div>
       </div>
-
+     
     </div>
+   <div class="col-12">
+        <div class="text-center">
+          <p style="text-align:center;">&copy; {{ date('Y') }} LinguaIdeas.com. Todos los derechos reservados.</p>
+        </div>
+      </div>
   </div>
 </div>
 
