@@ -239,8 +239,8 @@ Route::post('examenes/dislike', [App\Http\Controllers\ExamenesController::class,
 //Innovacion
 Route::get('innovacion/index', [App\Http\Controllers\InnovacionController::class, 'index'])->name('innovacion.index');
 Route::get('innovacion/{id}', [App\Http\Controllers\InnovacionController::class, 'show'])->name('innovacion.show');
-Route::post('innovacion/like', [App\Http\Controllers\InnovacionController::class, 'like'])->name('innovacion.like');
-Route::post('innovacion/dislike', [App\Http\Controllers\InnovacionController::class, 'dislike'])->name('innovacion.dislike');
+Route::post('innovacion/like/{id}', [App\Http\Controllers\InnovacionController::class, 'like'])->name('innovacion.like');
+Route::post('innovacion/dislike/{id}', [App\Http\Controllers\InnovacionController::class, 'dislike'])->name('innovacion.dislike');
 
 //Eventos
 Route::get('eventos/index', [App\Http\Controllers\EventosController::class, 'index'])->name('eventos.index');
