@@ -8,8 +8,7 @@
       <div class="col-lg-3 col-md-6 footer-contact">
         <h3>LinguaIdeas</h3>
         <p>
-        Medellin / Antioquia<br> 
-
+        Medellin / Antioquia<br>
         </p>
       </div>
 
@@ -17,7 +16,8 @@
         <h4>Atención al cliente</h4>
         <ul>
           <li><i class="bx bx-chevron-right"></i> <a href="https://www.google.com/intl/es/gmail/about/" target="_blank">Correo: linguaideas@gmail.com</a></li>
-         
+          <li><i class="bx bx-chevron-right"></i> <a href="{{ route('terminos.index')}}" >Términos y Condiciones</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="{{ route('terminos.politica')}}" >Política de tratamiento de datos</a></li>
         </ul>
       </div>
 

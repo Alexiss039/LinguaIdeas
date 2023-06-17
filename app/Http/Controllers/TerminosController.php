@@ -10,4 +10,8 @@ class TerminosController extends Controller
   {
     return view('terminos.index');
   }
+  public function politica()
+  {
+    return view('terminos.politica');
+  }
 }

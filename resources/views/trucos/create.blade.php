@@ -55,7 +55,7 @@
                                           
                                           <label>Imagen</label>
                                           <div class="form-group">
-                                            <input type="file" class="form-control" name="imagen" required>
+                                            <input type="file" class="form-control" name="imagen">
                                           </div>
 
                                           <label>Recurso</label>

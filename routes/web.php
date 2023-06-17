@@ -253,6 +253,7 @@ Route::get('testimonios/index', [App\Http\Controllers\TestimoniosController::cla
 
 //Terminos
 Route::get('terminos/index', [App\Http\Controllers\TerminosController::class, 'index'])->name('terminos.index');
-
+//politica
+Route::get('terminos/politica', [App\Http\Controllers\TerminosController::class, 'politica'])->name('terminos.politica');
 
 Route::get('/buscar', [\App\Http\Controllers\BusquedaController::class, 'buscar'])->name('buscar');
