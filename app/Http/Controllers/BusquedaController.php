@@ -14,7 +14,8 @@ class BusquedaController extends Controller
         $request->session()->put('terminos', $terminos);
 
         $resultados = DB::table('lecciones')
-            ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+            ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+            ->addSelect(DB::raw("'lecciones' AS tabla")) // Agregar la columna "tabla" con el valor 'lecciones'
             ->where(function ($query) use ($terminos) {
                 $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                       ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -22,7 +23,8 @@ class BusquedaController extends Controller
             ->orWhereRaw('nombre IN (SELECT nombre FROM entrevistas WHERE nombre LIKE ?)', ['%'.$terminos.'%'])
             ->unionAll(
                 DB::table('ejercicios')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'ejercicios' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -30,7 +32,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('juegos')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'juegos' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -38,7 +41,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('recursos')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'recursos' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -46,7 +50,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('pronunciacion')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'pronunciacion' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -54,7 +59,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('gramatica')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'gramatica' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -62,7 +68,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('pruebas')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'pruebas' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -70,7 +77,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('trucos')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'trucos' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -78,7 +86,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('videos')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'videos' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -86,7 +95,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('memes')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'memes' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -94,7 +104,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('historias')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'historias' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -102,7 +113,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('temas')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'temas' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -110,7 +122,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('entrevistas')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'entrevistas' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -118,7 +131,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('examenes')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'examenes' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -126,7 +140,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('innovacion')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'innovacion' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');
@@ -134,7 +149,8 @@ class BusquedaController extends Controller
             )
             ->unionAll(
                 DB::table('eventos')
-                    ->select('tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->select('id','tipo','nombre', 'descripcion','imagen','recurso','link','archivo','enlace')
+                    ->addSelect(DB::raw("'eventos' AS tabla"))
                     ->where(function ($query) use ($terminos) {
                         $query->where('nombre', 'LIKE', '%'.$terminos.'%')
                               ->orWhere('descripcion', 'LIKE', '%'.$terminos.'%');

@@ -8,7 +8,7 @@ use App\Models\Like;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class LeccionesController extends Controller
@@ -77,7 +77,7 @@ class LeccionesController extends Controller
        $lecciones->descripcion = $request->descripcion;
        if($request->hasFile('imagen')){
         $archivo =$request->file('imagen');
-        $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
         $lecciones->imagen = $archivo->getClientOriginalName();
         }
        if($request->hasFile('recurso')){
@@ -85,7 +85,7 @@ class LeccionesController extends Controller
             'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000'
         ]);
         $archivo =$request->file('recurso');
-        $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/lecciones', $archivo->getClientOriginalName());
         $lecciones->recurso = $archivo->getClientOriginalName();
         }
         $lecciones->setVideoEmbedAttribute($request->input('link'));  
@@ -97,7 +97,7 @@ class LeccionesController extends Controller
         if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
             
             // Almacenar el archivo en el servidor
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $lecciones->archivo = $archivo->getClientOriginalName(); }
         } else {
             // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos
@@ -176,7 +176,7 @@ class LeccionesController extends Controller
     public function show($id)
     { 
        $leccion = Lecciones::findOrFail($id);
-        $ruta_base = 'lecciones/';
+       $ruta_base = Storage::url('lecciones/');
        return view('lecciones.show', compact('leccion', 'ruta_base'));
     }
 
@@ -203,7 +203,7 @@ class LeccionesController extends Controller
     
         if ($request->hasFile('imagen')) {
             $archivo = $request->file('imagen');
-            $archivo->move(public_path() . '/recursos/', $archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $lecciones->imagen = $archivo->getClientOriginalName();
         }
         if ($request->hasFile('recurso')) {
@@ -211,17 +211,17 @@ class LeccionesController extends Controller
                 'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',
             ]);
     
-            // Eliminar el recurso existente si hay uno
+          // Eliminar el recurso existente si hay uno
             if (!is_null($lecciones->recurso)) {
-                $rutaRecursoAnterior = public_path('/lecciones/') . $lecciones->recurso;
+                $rutaRecursoAnterior = storage_path('app/public/lecciones/') . $lecciones->recurso;
                 if (File::exists($rutaRecursoAnterior)) {
-                    File::deleteDirectory($rutaRecursoAnterior);
+                    File::delete($rutaRecursoAnterior);
                 }
             }
-    
             $archivo = $request->file('recurso');
-            $archivo->move(public_path('/lecciones/'), $archivo->getClientOriginalName());
-            $lecciones->recurso = $archivo->getClientOriginalName();
+            $nombreArchivo = $archivo->getClientOriginalName();
+            $archivo->storeAs('public/lecciones', $nombreArchivo);
+            $lecciones->recurso = $nombreArchivo;
         }
     
         $lecciones->setVideoEmbedAttribute($request->input('link'));
@@ -233,7 +233,7 @@ class LeccionesController extends Controller
         if (!is_null($archivo)) {
             if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
                 // Almacenar el archivo en el servidor
-                $archivo->move(public_path() . '/recursos/', $archivo->getClientOriginalName());
+                $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
                 $lecciones->archivo = $archivo->getClientOriginalName();
             }
         } else {

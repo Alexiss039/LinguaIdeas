@@ -7,6 +7,9 @@ use App\Models\Examenes;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Like;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 class ExamenesController extends Controller
 {
     public function index()
@@ -49,7 +52,7 @@ class ExamenesController extends Controller
        $examenes->enlace = $request->enlace;
        if($request->hasFile('recurso')){
         $archivo =$request->file('recurso');
-        $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/lecciones', $archivo->getClientOriginalName());
         $examenes->recurso = $archivo->getClientOriginalName();
         }    
        $examenes->save();
@@ -116,7 +119,7 @@ class ExamenesController extends Controller
     public function show(string $id)
     {
         $examen = Examenes::findOrFail($id);
-         $ruta_base = 'lecciones/'; 'examen/';
+        $ruta_base = Storage::url('lecciones/');
         return view('examenes.show', compact('examen', 'ruta_base'));
     }
 
@@ -135,11 +138,23 @@ class ExamenesController extends Controller
         $examenes->nombre = $request->nombre;
         $examenes->descripcion = $request->descripcion;
         $examenes->enlace = $request->enlace;   
-        if($request->hasFile('recurso')){
-            $archivo =$request->file('recurso');
-            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
-            $examenes->recurso = $archivo->getClientOriginalName();
-            }  
+        if ($request->hasFile('recurso')) {
+            $validatedData = $request->validate([
+                'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',
+            ]);
+    
+          // Eliminar el recurso existente si hay uno
+            if (!is_null($examenes->recurso)) {
+                $rutaRecursoAnterior = storage_path('app/public/lecciones/') . $examenes->recurso;
+                if (File::exists($rutaRecursoAnterior)) {
+                    File::delete($rutaRecursoAnterior);
+                }
+            }
+            $archivo = $request->file('recurso');
+            $nombreArchivo = $archivo->getClientOriginalName();
+            $archivo->storeAs('public/lecciones', $nombreArchivo);
+            $examenes->recurso = $nombreArchivo;
+        }
 
         $notificacion = 'El examen se ha actualizado correctamente';
         $examenes->save();      

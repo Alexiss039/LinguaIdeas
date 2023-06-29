@@ -38,6 +38,7 @@
                 <form action="{{ route('ejercicios.update',$ejercicios->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    @if ($ejercicios->tipo == 'recurso')
                     <div class="form-group">
                         <label>Nombres</label>
                         <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $ejercicios->nombre) }}" required>
@@ -47,16 +48,28 @@
                         <label>Descripción</label>
                         <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $ejercicios->descripcion) }}" required>
                     </div>
-                    @if ($ejercicios->tipo == 'recurso')
+                  
                     <div class="form-group">
                         <label>Imagen</label>
                         <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $ejercicios->imagen) }}" >
                     </div>
-                    @endif                 
+
                     <div class="form-group">
                         <label>Recurso</label>
                         <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $ejercicios->recurso) }}" >
                     </div> 
+                    @endif                 
+                   @if ($ejercicios->tipo == 'multimedia')
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $ejercicios->nombre) }}" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $ejercicios->descripcion) }}" required>
+                    </div>
+                  
                     <div class="form-group">
                         <label>Video</label>
                         <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $ejercicios->link) }}" >
@@ -65,10 +78,29 @@
                         <label>mp3 o mp4</label>
                         <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $ejercicios->archivo) }}" >
                     </div>
+                    @endif 
+                    @if ($ejercicios->tipo == 'enlace')
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $ejercicios->imagen) }}" >
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $ejercicios->nombre) }}" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $ejercicios->descripcion) }}" required>
+                    </div>
+                    
                     <div class="form-group">
                         <label>Enlace</label>
                         <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $ejercicios->enlace) }}">
                     </div>  
+                    @endif 
+                   
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn-get-started">Actualizar datos</button>
                     </div>

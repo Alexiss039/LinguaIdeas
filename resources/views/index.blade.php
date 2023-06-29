@@ -621,9 +621,30 @@ línea.
     </section>
     <!-- End F.A.Q Section -->
 
-
+ <!-- Banner de cookies -->
+ <div class="cookie-banner">
+        <p>Este sitio web utiliza cookies para ofrecerte una mejor experiencia. Al continuar utilizando este sitio, aceptas nuestro uso de cookies.</p>
+        <button onclick="aceptarCookies()">Aceptar</button>
+        <button><a href="{{ route('terminos.politica')}}">Política de datos</a></button>
+    </div>
   </main>
   <!-- End #main -->
+  
+  <!-- localStorage.removeItem("cookiesAccepted"); -->
+    <!-- Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var cookieBanner = document.querySelector(".cookie-banner");
+            if (!localStorage.getItem("cookiesAccepted")) {
+                cookieBanner.classList.add("active");
+            }
+        });
+
+        function aceptarCookies() {
+            localStorage.setItem("cookiesAccepted", true);
+            document.querySelector(".cookie-banner").style.display = "none";
+        }
+    </script>
   <script>
     var boton = document.getElementById("abrir-modal");
     var modal = document.getElementById("mi-modal");

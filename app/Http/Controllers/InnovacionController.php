@@ -7,6 +7,9 @@ use App\Models\Innovacion;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Like;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 class InnovacionController extends Controller
 {
     public function index()
@@ -72,12 +75,12 @@ class InnovacionController extends Controller
        $innovacion->descripcion = $request->descripcion;
        if($request->hasFile('imagen')){
         $archivo =$request->file('imagen');
-        $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
         $innovacion->imagen = $archivo->getClientOriginalName();
         }
        if($request->hasFile('recurso')){
         $archivo =$request->file('recurso');
-        $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/lecciones', $archivo->getClientOriginalName());
         $innovacion->recurso = $archivo->getClientOriginalName();
         }
         $innovacion->setVideoEmbedAttribute($request->input('link'));  
@@ -89,7 +92,7 @@ class InnovacionController extends Controller
         if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
             
             // Almacenar el archivo en el servidor
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $innovacion->archivo = $archivo->getClientOriginalName(); }
         } else {
             // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos
@@ -166,7 +169,7 @@ class InnovacionController extends Controller
     public function show(string $id)
     {
         $innovacion = Innovacion::findOrFail($id);
-         $ruta_base = 'lecciones/'; 'innovacion/';
+        $ruta_base = Storage::url('lecciones/');
         return view('innovacion.show', compact('innovacion', 'ruta_base'));
     }
 
@@ -186,13 +189,25 @@ class InnovacionController extends Controller
         $innovacion->descripcion = $request->descripcion;
         if($request->hasFile('imagen')){
             $archivo =$request->file('imagen');
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $innovacion->imagen = $archivo->getClientOriginalName();
             }
-           if($request->hasFile('recurso')){
-            $archivo =$request->file('recurso');
-            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
-            $innovacion->recurso = $archivo->getClientOriginalName();
+            if ($request->hasFile('recurso')) {
+                $validatedData = $request->validate([
+                    'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',
+                ]);
+        
+              // Eliminar el recurso existente si hay uno
+                if (!is_null($innovacion->recurso)) {
+                    $rutaRecursoAnterior = storage_path('app/public/lecciones/') . $innovacion->recurso;
+                    if (File::exists($rutaRecursoAnterior)) {
+                        File::delete($rutaRecursoAnterior);
+                    }
+                }
+                $archivo = $request->file('recurso');
+                $nombreArchivo = $archivo->getClientOriginalName();
+                $archivo->storeAs('public/lecciones', $nombreArchivo);
+                $innovacion->recurso = $nombreArchivo;
             }
             $innovacion->setVideoEmbedAttribute($request->input('link'));  
             
@@ -203,7 +218,7 @@ class InnovacionController extends Controller
             if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
                 
                 // Almacenar el archivo en el servidor
-                $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+                $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
                 $innovacion->archivo = $archivo->getClientOriginalName(); }
             } else {
                 // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos

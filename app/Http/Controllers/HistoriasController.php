@@ -7,6 +7,9 @@ use App\Models\Historias;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Like;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 class HistoriasController extends Controller
 {
     public function index()
@@ -72,12 +75,12 @@ class HistoriasController extends Controller
        $historias->descripcion = $request->descripcion;
        if($request->hasFile('imagen')){
         $archivo =$request->file('imagen');
-        $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
         $historias->imagen = $archivo->getClientOriginalName();
         }
        if($request->hasFile('recurso')){
         $archivo =$request->file('recurso');
-        $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/lecciones', $archivo->getClientOriginalName());
         $historias->recurso = $archivo->getClientOriginalName();
         }
         $historias->setVideoEmbedAttribute($request->input('link'));  
@@ -89,7 +92,7 @@ class HistoriasController extends Controller
         if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
             
             // Almacenar el archivo en el servidor
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $historias->archivo = $archivo->getClientOriginalName(); }
         } else {
             // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos
@@ -166,7 +169,7 @@ class HistoriasController extends Controller
     public function show(string $id)
     {
         $historia = Historias::findOrFail($id);
-         $ruta_base = 'lecciones/'; 'historias/';
+        $ruta_base = Storage::url('lecciones/');
         return view('historias.show', compact('historia', 'ruta_base'));
     }
 
@@ -186,13 +189,25 @@ class HistoriasController extends Controller
         $historias->descripcion = $request->descripcion;
         if($request->hasFile('imagen')){
             $archivo =$request->file('imagen');
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $historias->imagen = $archivo->getClientOriginalName();
             }
-           if($request->hasFile('recurso')){
-            $archivo =$request->file('recurso');
-            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
-            $historias->recurso = $archivo->getClientOriginalName();
+            if ($request->hasFile('recurso')) {
+                $validatedData = $request->validate([
+                    'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',
+                ]);
+        
+              // Eliminar el recurso existente si hay uno
+                if (!is_null($historias->recurso)) {
+                    $rutaRecursoAnterior = storage_path('app/public/lecciones/') . $historias->recurso;
+                    if (File::exists($rutaRecursoAnterior)) {
+                        File::delete($rutaRecursoAnterior);
+                    }
+                }
+                $archivo = $request->file('recurso');
+                $nombreArchivo = $archivo->getClientOriginalName();
+                $archivo->storeAs('public/lecciones', $nombreArchivo);
+                $historias->recurso = $nombreArchivo;
             }
             $historias->setVideoEmbedAttribute($request->input('link'));  
             
@@ -203,7 +218,7 @@ class HistoriasController extends Controller
             if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
                 
                 // Almacenar el archivo en el servidor
-                $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+                $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
                 $historias->archivo = $archivo->getClientOriginalName(); }
             } else {
                 // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos

@@ -38,6 +38,7 @@
                 <form action="{{ route('temas.update',$temas->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    @if ($temas->tipo == 'recurso')
                     <div class="form-group">
                         <label>Nombres</label>
                         <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $temas->nombre) }}" required>
@@ -47,16 +48,27 @@
                         <label>Descripción</label>
                         <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $temas->descripcion) }}" required>
                     </div>
-                    @if ($temas->tipo == 'recurso')
+                  
                     <div class="form-group">
                         <label>Imagen</label>
                         <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $temas->imagen) }}" >
                     </div>
-                    @endif                 
                     <div class="form-group">
                         <label>Recurso</label>
                         <input type="file" class="form-control" name="recurso" value="{{ old('recurso', $temas->recurso) }}" >
                     </div> 
+                    @endif                 
+                    @if ($temas->tipo == 'multimedia')
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $temas->nombre) }}" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $temas->descripcion) }}" required>
+                    </div>
+                  
                     <div class="form-group">
                         <label>Video</label>
                         <input type="text" class="form-control" name="link" placeholder="(Opcional)" value="{{ old('link', $temas->link) }}" >
@@ -65,10 +77,28 @@
                         <label>mp3 o mp4</label>
                         <input type="file" class="form-control" name="archivo" value="{{ old('archivo', $temas->archivo) }}" >
                     </div>
+                    @endif 
+                    @if ($temas->tipo == 'enlace')
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $temas->imagen) }}" >
+                    </div>
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre', $temas->nombre) }}" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" name="descripcion" class="form-control" value="{{ old('descripcion', $temas->descripcion) }}" required>
+                    </div>
+                  
                     <div class="form-group">
                         <label>Enlace</label>
                         <input type="text" class="form-control" name="enlace" placeholder="Ingrese enlace" value="{{ old('enlace', $temas->enlace) }}" >
-                    </div>  
+                    </div> 
+                    @endif 
+                  
                     <div class="d-flex justify-content-around">
                         <button type="submit" class="btn-get-started">Actualizar datos</button>
                     </div>

@@ -7,6 +7,9 @@ use App\Models\Trucos;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Like;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 class TrucosController extends Controller
 {
     public function index()
@@ -71,12 +74,12 @@ class TrucosController extends Controller
        $trucos->descripcion = $request->descripcion;
        if($request->hasFile('imagen')){
         $archivo =$request->file('imagen');
-        $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
         $trucos->imagen = $archivo->getClientOriginalName();
         }
        if($request->hasFile('recurso')){
         $archivo =$request->file('recurso');
-        $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/lecciones', $archivo->getClientOriginalName());
         $trucos->recurso = $archivo->getClientOriginalName();
         }
         $trucos->setVideoEmbedAttribute($request->input('link'));  
@@ -88,7 +91,7 @@ class TrucosController extends Controller
         if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
             
             // Almacenar el archivo en el servidor
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $trucos->archivo = $archivo->getClientOriginalName(); }
         } else {
             // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos
@@ -164,7 +167,7 @@ class TrucosController extends Controller
     public function show(string $id)
     {
         $truco = Trucos::findOrFail($id);
-         $ruta_base = 'lecciones/'; 'trucos/';
+        $ruta_base = Storage::url('lecciones/');
         return view('trucos.show', compact('truco', 'ruta_base'));
     }
 
@@ -184,13 +187,25 @@ class TrucosController extends Controller
         $trucos->descripcion = $request->descripcion;
         if($request->hasFile('imagen')){
             $archivo =$request->file('imagen');
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $trucos->imagen = $archivo->getClientOriginalName();
             }
-           if($request->hasFile('recurso')){
-            $archivo =$request->file('recurso');
-            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
-            $trucos->recurso = $archivo->getClientOriginalName();
+            if ($request->hasFile('recurso')) {
+                $validatedData = $request->validate([
+                    'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',
+                ]);
+        
+              // Eliminar el recurso existente si hay uno
+                if (!is_null($trucos->recurso)) {
+                    $rutaRecursoAnterior = storage_path('app/public/lecciones/') . $trucos->recurso;
+                    if (File::exists($rutaRecursoAnterior)) {
+                        File::delete($rutaRecursoAnterior);
+                    }
+                }
+                $archivo = $request->file('recurso');
+                $nombreArchivo = $archivo->getClientOriginalName();
+                $archivo->storeAs('public/lecciones', $nombreArchivo);
+                $trucos->recurso = $nombreArchivo;
             }
             $trucos->setVideoEmbedAttribute($request->input('link'));  
             
@@ -201,7 +216,7 @@ class TrucosController extends Controller
             if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
                 
                 // Almacenar el archivo en el servidor
-                $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+                $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
                 $trucos->archivo = $archivo->getClientOriginalName(); }
             } else {
                 // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos

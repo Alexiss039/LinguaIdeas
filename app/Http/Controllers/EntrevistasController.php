@@ -7,6 +7,9 @@ use App\Models\Entrevistas;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use App\Models\Like;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 class EntrevistasController extends Controller
 {
     public function index()
@@ -73,12 +76,12 @@ class EntrevistasController extends Controller
        $entrevistas->descripcion = $request->descripcion;
        if($request->hasFile('imagen')){
         $archivo =$request->file('imagen');
-        $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
         $entrevistas->imagen = $archivo->getClientOriginalName();
         }
        if($request->hasFile('recurso')){
         $archivo =$request->file('recurso');
-        $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
+        $archivo->storeAs('public/lecciones', $archivo->getClientOriginalName());
         $entrevistas->recurso = $archivo->getClientOriginalName();
         }
         $entrevistas->setVideoEmbedAttribute($request->input('link'));  
@@ -90,7 +93,7 @@ class EntrevistasController extends Controller
         if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
             
             // Almacenar el archivo en el servidor
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $entrevistas->archivo = $archivo->getClientOriginalName(); }
         } else {
             // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos
@@ -167,7 +170,7 @@ class EntrevistasController extends Controller
     public function show(string $id)
     {
         $entrevista = Entrevistas::findOrFail($id);
-         $ruta_base = 'lecciones/'; 'entrevistas/';
+        $ruta_base = Storage::url('lecciones/');
         return view('entrevistas.show', compact('entrevista', 'ruta_base'));
     }
 
@@ -187,13 +190,25 @@ class EntrevistasController extends Controller
         $entrevistas->descripcion = $request->descripcion;
         if($request->hasFile('imagen')){
             $archivo =$request->file('imagen');
-            $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
             $entrevistas->imagen = $archivo->getClientOriginalName();
             }
-           if($request->hasFile('recurso')){
-            $archivo =$request->file('recurso');
-            $archivo->move(public_path().'/lecciones/',$archivo->getClientOriginalName());
-            $entrevistas->recurso = $archivo->getClientOriginalName();
+            if ($request->hasFile('recurso')) {
+                $validatedData = $request->validate([
+                    'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',
+                ]);
+        
+              // Eliminar el recurso existente si hay uno
+                if (!is_null($entrevistas->recurso)) {
+                    $rutaRecursoAnterior = storage_path('app/public/lecciones/') . $entrevistas->recurso;
+                    if (File::exists($rutaRecursoAnterior)) {
+                        File::delete($rutaRecursoAnterior);
+                    }
+                }
+                $archivo = $request->file('recurso');
+                $nombreArchivo = $archivo->getClientOriginalName();
+                $archivo->storeAs('public/lecciones', $nombreArchivo);
+                $entrevistas->recurso = $nombreArchivo;
             }
             $entrevistas->setVideoEmbedAttribute($request->input('link'));  
             
@@ -204,7 +219,7 @@ class EntrevistasController extends Controller
             if ($archivo->getClientOriginalExtension() == 'mp3' || $archivo->getClientOriginalExtension() == 'mp4') {
                 
                 // Almacenar el archivo en el servidor
-                $archivo->move(public_path().'/recursos/',$archivo->getClientOriginalName());
+                $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
                 $entrevistas->archivo = $archivo->getClientOriginalName(); }
             } else {
                 // Si el archivo es nulo, asignar NULL al campo "archivo" en la base de datos

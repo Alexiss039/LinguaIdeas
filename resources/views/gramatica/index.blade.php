@@ -79,7 +79,7 @@
                         <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                           <div class="box">
                             <a href="{{ route('gramatica.show', $recurso) }}" target="_blank">
-                            <img src="{{ asset('recursos/' . $recurso->imagen) }}" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/recursos/' . $recurso->imagen) }}" class="img-fluid" alt="">
                             </a>
                             <h3>{{ $recurso->nombre }}</h3>
                             <p class="description">{{ $recurso->descripcion }}</p>
@@ -89,7 +89,7 @@
                             @if ($extension == 'pdf')
                               <a class="btn-blue" href="{{ route('gramatica.show', $recurso) }}" target="_blank">Ver PDF</a>                              
                             @elseif(isset($recurso->recurso))
-                            <a class="btn-blue" href="{{ asset('lecciones/' . $recurso->recurso) }}" target="_blank">Descargar</a>
+                            <a class="btn-blue" href="{{ asset('storage/lecciones/' . $recurso->recurso) }}" target="_blank">Descargar</a>
                             @else
                             
                             @endif
@@ -129,12 +129,12 @@
                                 <p class="description">{{ $multimedia->descripcion }}</p>
                                 @if($multimedia->archivo && pathinfo($multimedia->archivo, PATHINFO_EXTENSION) == 'mp3')
                                 <audio controls style="width: 100%; display: block;">
-                                    <source src="{{ asset('recursos/' . $multimedia->archivo) }}" type="audio/mp3">
+                                    <source src="{{ asset('storage/recursos/' . $multimedia->archivo) }}" type="audio/mp3">
                                 </audio>
                                 @endif
                                 @if($multimedia->archivo && pathinfo($multimedia->archivo, PATHINFO_EXTENSION) == 'mp4')
                                   <video controls width="100%" height="250px;">
-                                    <source src="{{ asset('recursos/' . $multimedia->archivo) }}" type="video/mp4">
+                                    <source src="{{ asset('storage/recursos/' . $multimedia->archivo) }}" type="video/mp4">
                                   </video>
                                 @endif
                                 <div class="likes-buttons">
@@ -168,9 +168,7 @@
                           @foreach($enlaces as $enlace)
                             <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                               <div class="box">
-                                <a href="{{$enlace->imagen}}" target="_blank">
-                                <img src="{{ asset('recursos/' . $enlace->imagen) }}" class="img-fluid" alt="">
-                                </a>                      
+                                <img src="{{ asset('storage/recursos/' . $enlace->imagen) }}" class="img-fluid" alt="">                      
                                 <h3>{{ $enlace->nombre }}</h3>
                                 <p class="description">{{ $enlace->descripcion }}</p>
                                 <a href="{{$enlace->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
