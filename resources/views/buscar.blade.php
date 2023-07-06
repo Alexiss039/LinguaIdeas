@@ -18,7 +18,6 @@
                           @if(strpos(strtolower($resultado->nombre), strtolower($terminos)) !== false || strpos(strtolower($resultado->descripcion), strtolower($terminos)) !== false )
                             <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                               <div class="box">
-                                <h5 class="pb-1">{{ $resultado->tipo }}</h5>
                                 @if($resultado->link)
                                 <?php echo html_entity_decode($resultado->link); ?>
                                 @else
