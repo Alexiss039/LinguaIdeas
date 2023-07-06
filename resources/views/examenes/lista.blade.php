@@ -35,6 +35,7 @@
                         <th class="text-capitalize font-weight-bolder">Nombre</th>
                         <th class="text-capitalize font-weight-bolder">Descripción</th>
                         <th class="text-capitalize font-weight-bolder">Enlace</th>
+                        <th class="text-capitalize font-weight-bolder">Imagen</th>
                         <th class="text-capitalize font-weight-bolder">Recurso</th>  
                         <th class="text-center text-capitalize font-weight-bolder">Opciones</th>
                         </tr>
@@ -56,6 +57,9 @@
                             </td>
                             <td>
                             {{ !empty($examen->enlace) ? substr($examen->enlace, 0, 13) . (strlen($examen->enlace) > 13 ? '...' : '') : 'N/A' }}                               
+                            </td>
+                            <td>
+                            {{ !empty($examen->imagen) ? substr($examen->imagen, 0, 13) . (strlen($examen->imagen) > 13 ? '...' : '') : 'N/A' }}                               
                             </td>
                             <td>
                             {{ !empty($examen->recurso) ? substr($examen->recurso, 0, 13) . (strlen($examen->recurso) > 13 ? '...' : '') : 'N/A' }}                               

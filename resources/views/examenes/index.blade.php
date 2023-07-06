@@ -64,6 +64,9 @@
             @foreach($examenes as $examen)
               <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="box">
+                           
+                            <img src="{{ asset('storage/recursos/' . $examen->imagen) }}" class="img-fluid" alt="">
+                           
                   <h3>{{ $examen->nombre }}</h3>
                   <p class="description">{{ $examen->descripcion }}</p>
                             @php
@@ -71,8 +74,9 @@
                             @endphp
                             @if ($extension == 'pdf')
                             <a class="btn-blue" href="{{ route('examenes.show', $examen->id) }}" target="_blanck">Ver PDF</a>
-                            @else
-                            <a href="{{$examen->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
+                            @endif
+                            @if (isset($examen->enlace))
+                                <a href="{{$examen->enlace}}" class="btn-blue" target="_blank">Ir al sitio web</a>
                             @endif
                   
                   <div class="likes-buttons">

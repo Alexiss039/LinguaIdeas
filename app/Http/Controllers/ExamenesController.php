@@ -50,6 +50,11 @@ class ExamenesController extends Controller
        $examenes->nombre = $request->nombre;
        $examenes->descripcion = $request->descripcion;
        $examenes->enlace = $request->enlace;
+       if($request->hasFile('imagen')){
+        $archivo =$request->file('imagen');
+        $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
+        $examenes->imagen = $archivo->getClientOriginalName();
+        }
        if($request->hasFile('recurso')){
         $archivo =$request->file('recurso');
         $archivo->storeAs('public/lecciones', $archivo->getClientOriginalName());
@@ -137,7 +142,12 @@ class ExamenesController extends Controller
         $examenes = Examenes::find($id);
         $examenes->nombre = $request->nombre;
         $examenes->descripcion = $request->descripcion;
-        $examenes->enlace = $request->enlace;   
+        $examenes->enlace = $request->enlace;  
+        if($request->hasFile('imagen')){
+            $archivo =$request->file('imagen');
+            $archivo->storeAs('public/recursos', $archivo->getClientOriginalName());
+            $examenes->imagen = $archivo->getClientOriginalName();
+            } 
         if ($request->hasFile('recurso')) {
             $validatedData = $request->validate([
                 'recurso' => 'sometimes|mimes:pdf,doc,docx,xlsx,xls,ppt,pptx|max:10000',

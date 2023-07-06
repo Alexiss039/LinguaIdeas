@@ -51,10 +51,13 @@
                         <label>Enlace</label>
                         <input type="text" class="form-control" name="enlace" placeholder="(Opcional)" value="{{ old('enlace', $examenes->enlace) }}" required>
                     </div> 
-                    
+                    <div class="form-group">
+                        <label>Imagen</label>
+                        <input type="file" class="form-control" name="imagen" value="{{ old('imagen', $examenes->imagen) }}" >
+                    </div>
                     <label>Recurso</label>
                         <div class="form-group">
-                            <input type="file" class="form-control" name="recurso" required>
+                            <input type="file" class="form-control" name="recurso">
                         </div>
               
                     <div class="d-flex justify-content-around">
