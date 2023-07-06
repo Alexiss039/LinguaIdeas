@@ -8,9 +8,9 @@
     <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">      
         
-      <div class="section-title" data-aos="fade-up">
-          <h2>Resultados de la busqueda</h2>
-        </div>      
+        <div class="section-title" data-aos="fade-up">
+          <h2 class="no-before no-after">Resultados de la busqueda</h2>
+        </div>  
 
             @if(count($resultados) > 0)
                   <div class="row">
