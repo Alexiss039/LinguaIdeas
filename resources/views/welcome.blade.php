@@ -7,6 +7,8 @@
   <link rel="icon" type="image/png" href="{{ asset('img/fon.png')}}">
     <title>LinguaIdeas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2750022549708512"
+     crossorigin="anonymous"></script>
   </head>
 
 <body>
