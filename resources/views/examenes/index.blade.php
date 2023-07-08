@@ -64,7 +64,7 @@
             @foreach($examenes as $examen)
               <div class="col-lg-3 mt-4 mt-lg-0 pt-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="box">
-                <a href="{{ route('examenes.show', $examen) }}" target="_blank">
+                <a href="{{ route('examenes.show', $examen->id) }}" target="_blank">
                             <img src="{{ asset('storage/recursos/' . $examen->imagen) }}" class="img-fluid" alt="">
                 </a>
                   <h3>{{ $examen->nombre }}</h3>
