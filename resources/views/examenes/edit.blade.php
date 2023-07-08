@@ -49,7 +49,7 @@
           
                     <div class="form-group">
                         <label>Enlace</label>
-                        <input type="text" class="form-control" name="enlace" placeholder="(Opcional)" value="{{ old('enlace', $examenes->enlace) }}" required>
+                        <input type="text" class="form-control" name="enlace" placeholder="(Opcional)" value="{{ old('enlace', $examenes->enlace) }}">
                     </div> 
                     <div class="form-group">
                         <label>Imagen</label>
